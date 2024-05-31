@@ -7,10 +7,10 @@ MAKEFLAGS += --no-print-directory
 
 NAME		:= phonebook
 
-SRC 		= 
+SRC 		= PhoneBook.cpp Contact.cpp main.cpp
 OBJ 		= $(SRC:.cpp=.o)
 
-INCLUDE 	= 
+INCLUDE 	= phonebook.hpp contact.hpp main.hpp
 
 CC			= c++
 CFLAGS 		= -Wall -Wextra -Werror -g3

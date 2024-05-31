@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 09:07:11 by scely             #+#    #+#             */
-/*   Updated: 2024/05/31 09:38:40 by scely            ###   ########.fr       */
+/*   Created: 2024/05/31 09:32:42 by scely             #+#    #+#             */
+/*   Updated: 2024/05/31 11:06:42 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#ifndef MAIN_HPP
+#define MAIN_HPP
 
-PhoneBook::PhoneBook(void)
-{
-	std::cout << "Constructor called PhoneBook" << std::endl;
-}
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include "contact.hpp"
+#include "phonebook.hpp"
 
-PhoneBook::~PhoneBook(void)
-{
-	std::cout << "Destructor is called PhoneBook" << std::endl;
-}
+#endif

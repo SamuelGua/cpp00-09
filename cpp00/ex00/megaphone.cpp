@@ -6,19 +6,19 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 14:38:38 by scely             #+#    #+#             */
-/*   Updated: 2024/05/30 16:06:56 by scely            ###   ########.fr       */
+/*   Updated: 2024/05/31 09:05:41 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cctype>
+#include <string>
 
 char *do_up(char *str)
 {
 	for (int i = 0; str[i]; i++)
-		if (std::islower(str[i]))
-			str[i] -= 32;
-	return (str); 
+		str[i] = std::toupper(str[i]);
+	return (str);
 }
 
 int main(int ac, char *av[])
