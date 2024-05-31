@@ -5,12 +5,12 @@ COLOR_YELLOW = \033[93m
 COLOR_BOLD = \033[1m
 MAKEFLAGS += --no-print-directory
 
-NAME		:= phonebook
+NAME		:= accounts
 
-SRC 		= PhoneBook.cpp Contact.cpp main.cpp
+SRC 		= tests.cpp main.cpp
 OBJ 		= $(SRC:.cpp=.o)
 
-INCLUDE 	= Phonebook.hpp Contact.hpp main.hpp
+INCLUDE 	= Account.hpp
 
 CC			= c++
 CFLAGS 		= -Wall -Wextra -Werror -g3

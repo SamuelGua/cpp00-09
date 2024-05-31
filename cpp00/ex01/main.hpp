@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 09:32:42 by scely             #+#    #+#             */
-/*   Updated: 2024/05/31 11:06:42 by scely            ###   ########.fr       */
+/*   Updated: 2024/05/31 14:57:36 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include "contact.hpp"
-#include "phonebook.hpp"
+#include <cctype>
+#include <locale>
+#include "Contact.hpp"
+#include "Phonebook.hpp"
 
 #endif

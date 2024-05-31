@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 09:36:15 by scely             #+#    #+#             */
-/*   Updated: 2024/05/31 11:57:46 by scely            ###   ########.fr       */
+/*   Updated: 2024/05/31 14:44:59 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ void print(std::string str)
 		std::cout << str[i];
 	if (str.length() > 9)
 		std::cout << ".";
-	while (i++ < 10)
-		std::cout << " ";
+	else
+	{
+		while (i++ < 11)
+			std::cout << " ";
+	}
 }
 
 void print_contact(Contact *contact)
@@ -42,14 +45,18 @@ int search(PhoneBook *directory)
 
 	i = -1;
 	std::string input;
-	std::cout << "  =============================================" << std::endl;
-	std::cout << " 		INDEX |  FIRST   |   LAST   | NICKNAME |" << std::endl;
-	std::cout << "  =============================================" << std::endl;
+	std::cout << " =============================================" << std::endl;
+	std::cout << " | INDEX |   FIRST   |   LAST    | NICKNAME  |" << std::endl;
+	std::cout << " =============================================" << std::endl;
 	while (++i < 8)
 	{
-		std::cout << i + 1 << " |";
-		print_contact(&directory->contact[i]);
+		if (!directory->contact[i].first_name.empty())
+		{
+			std::cout << " |   " << i + 1 << "   |";
+			print_contact(&directory->contact[i]);
+		}
 	}
+	std::cout << " =============================================" << std::endl;
 	std::cout << "Index : ";
 	if (!std::getline(std::cin, input))
 		return (1);
@@ -66,7 +73,7 @@ int search(PhoneBook *directory)
 		std::cerr << "Incorret numbers" << std::endl;
 	else
 	{
-		if (directory->contact->first_name.length() == 0)
+		if (directory->contact[i].first_name.length() == 0)
 		{
 			std::cout << "Is empty" << std::endl;
 			return (0);
@@ -76,30 +83,48 @@ int search(PhoneBook *directory)
 	}
 	return (0);
 }
+int set_value(std::string *str, std::string to_print)
+{
+	bool printable;
+	std::string str_tmp;
+
+	while (1)
+	{
+		printable = true;
+		std::cout << to_print;
+		if (!std::getline(std::cin, *str))
+			return (1);
+		str_tmp = *str;
+		for (int i = 0; i < (int)str_tmp.length(); i++)
+		{
+			if (!std::isprint(str_tmp[i]))
+				printable = false;
+		}
+		if (!printable || str_tmp.empty())
+		{
+			std::cout << "Wrongs input" << std::endl;
+			continue;
+		}
+		else
+			return (0);
+	}
+	return (0);
+}
 
 int add_new(PhoneBook *directory, int *i)
 {
 	// faire une boucle, tant que c'est vide faire un appel a getline ou si il y a des non printable carateres
-	std::cout << "First name : ";
-	if (!std::getline(std::cin, directory->contact[*i].first_name))
+
+	if (set_value(&directory->contact[*i].first_name, "First name : "))
 		return (1);
-	std::cout << "Last name : ";
-	if (!std::getline(std::cin, directory->contact[*i].last_name))
+	if (set_value(&directory->contact[*i].last_name, "Last name : "))
 		return (1);
-	std::cout << "Nickname : ";
-	if (!std::getline(std::cin, directory->contact[*i].nickname))
+	if (set_value(&directory->contact[*i].nickname, "Nickname name : "))
 		return (1);
-	std::cout << "Phone number : ";
-	if (!std::getline(std::cin, directory->contact[*i].phone_number))
+	if (set_value(&directory->contact[*i].phone_number, "Phone number : "))
 		return (1);
-	std::cout << "Darkest secret : ";
-	if (!std::getline(std::cin, directory->contact[*i].darkest_secret))
+	if (set_value(&directory->contact[*i].darkest_secret, "Darkest secret : "))
 		return (1);
-	if (!directory->contact[*i].first_name.length() || !directory->contact[*i].last_name.length() || !directory->contact[*i].nickname.length() || !directory->contact[*i].darkest_secret.length() || !directory->contact[*i].phone_number.length())
-	{
-		std::cerr << "A parameters is empty" << std::endl;
-		return (0);
-	}
 	*i += 1;
 	if (*i++ > 7)
 		*i = 0;
@@ -118,17 +143,17 @@ int main(void)
 		std::cout << "? : ";
 		if (!std::getline(std::cin, input))
 			return (std::cout << std::endl, 1);
-		if (!input.compare("add"))
+		if (!input.compare("ADD"))
 		{
 			if (add_new(&directory, &i) == 1)
 				return (std::cout << std::endl, 1);
 		}
-		else if (!input.compare("search"))
+		else if (!input.compare("SEARCH"))
 		{
 			if (search(&directory) == 1)
 				return (std::cout << std::endl, 1);
 		}
-		else if (!input.compare("exit"))
+		else if (!input.compare("EXIT"))
 			exit(0);
 		else
 			std::cout << "Wrongs input" << std::endl;

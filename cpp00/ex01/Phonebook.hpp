@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 09:34:11 by scely             #+#    #+#             */
-/*   Updated: 2024/05/31 09:54:46 by scely            ###   ########.fr       */
+/*   Created: 2024/05/31 09:19:41 by scely             #+#    #+#             */
+/*   Updated: 2024/05/31 14:47:21 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
-class Contact
+class PhoneBook
 {
 private:
 public:
-	Contact(void);
-	~Contact(void);
-
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	std::string phone_number;
-	std::string darkest_secret;
+	PhoneBook(void);
+	~PhoneBook(void);
+	Contact contact[8];
 };
 
 #endif
