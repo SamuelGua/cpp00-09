@@ -33,6 +33,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME)
+	@echo "$(COLOR_RED)Binary is deleted 🗑️$(COLOR_RESET)"
 	@echo "$(COLOR_RED)$(COLOR_BOLD)All files are deleted 🗑️$(COLOR_RESET)"
 
 re:

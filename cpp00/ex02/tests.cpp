@@ -12,17 +12,40 @@
 #include <functional>
 #include "Account.hpp"
 
-static int getNbAccounts(void);
-static int getTotalAmount(void)
+static int	_nbAccounts = 0;
+static int	_totalAmount = 0;
+static int	_totalNbDeposits = 0;
+static int	_totalNbWithdrawals = 0;
+
+int Account::getNbAccounts(void)
 {
-	return ()
+	return (Account::_nbAccounts);
 }
-static int getNbDeposits(void);
-static int getNbWithdrawals(void);
-static void displayAccountsInfos(void);
+
+int Account::getTotalAmount(void)
+{
+	return (Account::_totalAmount);
+}
+
+int Account::getNbDeposits(void)
+{
+	return(Account::_totalNbDeposits);
+}
+
+int Account::getNbWithdrawals(void)
+{
+	return(Account::_totalNbWithdrawals);
+}
+
+void Account::displayAccountsInfos(void);
 
 Account::Account(int initial_deposit)
 {
+	_accountIndex = 0;
+	_amount = 0;
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
+
 	if (initial_deposit <= 0)
 		return;
 	_totalAmount = initial_deposit;
@@ -34,9 +57,26 @@ Account::~Account(void)
 	return;
 }
 
-void makeDeposit(int deposit);
-bool makeWithdrawal(int withdrawal);
-int checkAmount(void) const;
+void Account::makeDeposit(int deposit)
+{
+	this->_amount += deposit;
+	this->_nbDeposits += 1;
+	this->_totalNbDeposits +=1;
+}
+bool Account::makeWithdrawal(int withdrawal)
+{
+	if (_amount < withdrawal)
+		return (false);
+	this->_amount -= withdrawal;
+	this->_nbWithdrawals += 1;
+	this->_totalNbWithdrawals +=1;
+	return (true);
+}
+
+int Account::checkAmount(void) const
+{
+	return(this->_amount);
+}
 void displayStatus(void) const;
 
 int main(void)
