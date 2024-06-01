@@ -7,6 +7,7 @@
 //                                                                            //
 // ************************************************************************** //
 
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <functional>
@@ -16,6 +17,7 @@ static int	_nbAccounts = 0;
 static int	_totalAmount = 0;
 static int	_totalNbDeposits = 0;
 static int	_totalNbWithdrawals = 0;
+
 
 int Account::getNbAccounts(void)
 {
@@ -37,19 +39,31 @@ int Account::getNbWithdrawals(void)
 	return(Account::_totalNbWithdrawals);
 }
 
-void Account::displayAccountsInfos(void);
+void Account::displayAccountsInfos(void)
+{
+	std::cout << "accounts:" << _nbAccounts << ";";
+	std::cout << "total:" << _totalAmount << ";";
+	std::cout << "deposits:" << _totalNbDeposits << ";";
+	std::cout << "withdrawals:" << _totalNbWithdrawals << ";";
+}
 
 Account::Account(int initial_deposit)
 {
-	_accountIndex = 0;
+	_accountIndex = _nbAccounts;
+	_nbAccounts += 1;
 	_amount = 0;
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
 
-	if (initial_deposit <= 0)
-		return;
-	_totalAmount = initial_deposit;
-	_totalNbDeposits = 1;
+	if (initial_deposit > 0)
+	{
+		_amount = initial_deposit;
+		_totalAmount += _amount;
+	}
+	std::cout << "index:" << _accountIndex << ";";
+	std::cout << "amount:" << _amount << ";";
+	std::cout << "created" << _accountIndex << std::endl;
+
 	return;
 }
 Account::~Account(void)
@@ -77,7 +91,15 @@ int Account::checkAmount(void) const
 {
 	return(this->_amount);
 }
-void displayStatus(void) const;
+void Account::displayStatus(void) const
+{
+	std::cout << "index:" << this->_accountIndex << ";";
+	std::cout << "p_amount:" << this->_amount << ";";
+	std::cout << "deposit:" << this->_totalNbDeposits << ";";
+	std::cout << "amount:" << this->_totalAmount << ";";
+	std::cout << "nb_deposits:" << this->_nbDeposits << ";" << std::endl;
+	
+}
 
 int main(void)
 {

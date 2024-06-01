@@ -12,6 +12,7 @@
 #ifndef __ACCOUNT_H__
 #define __ACCOUNT_H__
 
+#include <ctime>
 // ************************************************************************** //
 //                               Account Class                                //
 // ************************************************************************** //
@@ -45,7 +46,16 @@ private:
 	static int	_totalNbDeposits;
 	static int	_totalNbWithdrawals;
 
-	static void	_displayTimestamp( void );
+	static void	_displayTimestamp( void )
+	{
+
+		// pas bon a refaire
+		// std::time_t timer;
+	
+		// timer = std::time(NULL);
+		// std::cout << "[" << timer << "] ";
+		std::cout << "bad time \t";
+	}
 
 	int				_accountIndex;
 	int				_amount;

@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 09:07:18 by scely             #+#    #+#             */
-/*   Updated: 2024/05/31 21:32:25 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/01 10:49:02 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,15 @@ Contact::~Contact(void)
 
 int insert_value(std::string *str, std::string to_print)
 {
-	bool printable;
-	std::string str_tmp;
+	bool		printable;
+	bool		is_num;
+	std::string	str_tmp;
 
 	while (1)
 	{
 		printable = true;
+		is_num = true;
+
 		std::cout << to_print;
 		if (!std::getline(std::cin, *str))
 			return (1);
@@ -39,7 +42,14 @@ int insert_value(std::string *str, std::string to_print)
 			if (!std::isprint(str_tmp[i]))
 				printable = false;
 		}
-		if (!printable || str_tmp.empty())
+		if (!to_print.compare("Phone number : "))
+		{
+			for(int i = 0; i < (int)str_tmp.length(); i++)
+				if (str_tmp.length() != 10 || !std::isdigit(str_tmp[i]))
+					is_num = false;
+		}
+		if (!is_num || !printable || str_tmp[0] == 32 || (str_tmp[0] >= 7 && str_tmp[0] <= 13)
+			|| str_tmp.empty())
 		{
 			std::cout << "Wrongs input" << std::endl;
 			continue;
