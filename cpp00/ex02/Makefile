@@ -7,13 +7,13 @@ MAKEFLAGS += --no-print-directory
 
 NAME		:= accounts
 
-SRC 		= tests.cpp main.cpp
+SRC 		= tests.cpp
 OBJ 		= $(SRC:.cpp=.o)
 
 INCLUDE 	= Account.hpp
 
 CC			= c++
-CFLAGS 		= -Wall -Wextra -Werror -g3
+CFLAGS 		= -Wall -Wextra -Werror
 CFLAGS		+= -std=c++98
 CCFLAGS		+= -I include
 
