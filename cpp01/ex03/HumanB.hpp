@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.h                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 13:37:42 by scely             #+#    #+#             */
-/*   Updated: 2024/06/02 13:45:57 by scely            ###   ########.fr       */
+/*   Created: 2024/06/02 14:09:32 by scely             #+#    #+#             */
+/*   Updated: 2024/06/02 17:41:05 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_H
-# define WEAPON_H
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-#include "Weapon.hpp"
+#include "main.h"
+
+class HumanB
+{
+	private:
+		std::string	name;
+		Weapon		*arme;
+	public:
+		HumanB(std::string name);
+		~HumanB();
+		void setWeapon(Weapon &arme);
+		void attack(void);
+};
 
 #endif

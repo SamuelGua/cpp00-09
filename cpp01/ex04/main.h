@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.h                                           :+:      :+:    :+:   */
+/*   main.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 13:37:42 by scely             #+#    #+#             */
-/*   Updated: 2024/06/02 13:45:57 by scely            ###   ########.fr       */
+/*   Created: 2024/06/02 17:52:18 by scely             #+#    #+#             */
+/*   Updated: 2024/06/02 18:38:50 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_H
-# define WEAPON_H
+#ifndef MAIN_H
+# define MAIN_H
 
-#include "Weapon.hpp"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cctype>
+#include <cstring>
+
 
 #endif
