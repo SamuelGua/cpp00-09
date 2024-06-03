@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 19:20:42 by scely             #+#    #+#             */
-/*   Updated: 2024/06/02 22:31:08 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/03 09:18:38 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,28 @@ class Harl
 	private:
 		void debug(void)
 		{
-			std::cout << "\033[3m";
+			std::cout << "\033[3;32m";
 			std::cout <<  "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do !" << std::endl;
 			std::cout << "\033[0m";
 			return ;
 		}
 		void info(void)
 		{
-			std::cout << "\033[3m";	
+			std::cout << "\033[3;33m";	
 			std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger ! If you did, I wouldn’t be asking for more !" << std::endl;
 			std::cout << "\033[0m";
 			return ;
 		}
 		void warning(void)
 		{
-			std::cout << "\033[3m";
+			std::cout << "\033[3;38;5;208m";
 			std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." << std::endl;
 			std::cout << "\033[0m";
 			return ;
 		}
 		void error(void)
 		{
-			std::cout << "\033[3m";
+			std::cout << "\033[1;3;31m";
 			std::cout << "This is unacceptable ! I want to speak to the manager now." << std::endl;
 			std::cout << "\033[0m";
 			return ;

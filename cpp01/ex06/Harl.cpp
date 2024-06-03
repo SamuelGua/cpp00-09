@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 19:22:39 by scely             #+#    #+#             */
-/*   Updated: 2024/06/02 23:07:32 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/03 09:12:54 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,27 @@ Harl::~Harl()
 
 void Harl::complain(std::string level)
 {
-	// std::map<std::string, map_function> func_tab;
-	// func_tab["DEBUG"] = &Harl::debug;
-	// func_tab["INFO"] = &Harl::info;
-	// func_tab["WARNING"] = &Harl::warning;
-	// func_tab["ERROR"] = &Harl::error;
-
-	// std::map<std::string, map_function>::iterator message = func_tab.find(level);
-	// std::map<std::string, map_function>::iterator bmessage = func_tab.begin();
-	// while (bmessage != message)
-	// {
-	// 	map_function func = bmessage->second;
-	// 	(this->*func)();
-	// 	bmessage++;
-	// }
-	// if (bmessage == func_tab.end())
-	// 	std::cout << "Wrongs message" << std::endl;
-		
+	std::string harl_message[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void (Harl::*funct_ptr[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	
+	int i = 0;
+	bool is_message = false;
+	for (int x = 0; x < 4; x++)
+	{
+		if (!harl_message[x].compare(level))
+			is_message = true;
+	}
+	if (!is_message)
+	{
+		std::cout << "[I'm too lazy, STOP COMPLAINING !!!]" << std::endl;
+		return ;
+	}
+	while(is_message && i < 4)
+	{
+		(this->*funct_ptr[i])();
+		if (!harl_message[i].compare(level))
+			break;
+		i++;
+	}		
 }
+		
