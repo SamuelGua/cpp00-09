@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 09:07:11 by scely             #+#    #+#             */
-/*   Updated: 2024/05/31 21:37:48 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/04 09:19:21 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void PhoneBook::print_directory(void)
 	while (++i < 8)
 		this->contact[i].print_contact(i);
 	std::cout << " =============================================" << std::endl;
+	std::cout << "Enter a index : ";
 	if (!std::getline(std::cin, input))
 	{
 			std::cout << std::endl;

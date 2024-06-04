@@ -13,9 +13,9 @@ OBJ 		= $(SRC:.cpp=.o)
 INCLUDE 	= 
 
 CC			= c++
-CFLAGS 		= -Wall -Wextra -Werror -g3
+CFLAGS 		= -Wall -Wextra -Werror
 CFLAGS		+= -std=c++98
-CCFLAGS		+= -I include
+# CCFLAGS		+= -I include
 
 RM			= rm -rf
 
@@ -25,7 +25,7 @@ $(NAME) : $(OBJ)
 	@$(CC) $(OBJ) -o $(NAME)
 
 %.o : %.cpp $(INCLUDE)
-	$(CC) $(CFLAGS) $(CCFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) $(CCFLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJ)

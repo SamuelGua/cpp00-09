@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 09:36:15 by scely             #+#    #+#             */
-/*   Updated: 2024/05/31 21:41:09 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/04 09:16:31 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int main(void)
 
 	while (1)
 	{
-		std::cout << "? : ";
+		std::cout << "What should I do : ";
 		if (!std::getline(std::cin, input))
 			return (std::cout << std::endl, 1);
 		if (!input.compare("ADD"))

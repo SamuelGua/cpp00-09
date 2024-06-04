@@ -13,9 +13,9 @@ OBJ 		= $(SRC:.cpp=.o)
 INCLUDE 	= Phonebook.hpp Contact.hpp main.hpp
 
 CC			= c++
-CFLAGS 		= -Wall -Wextra -Werror -g3
+CFLAGS 		= -Wall -Wextra -Werror
 CFLAGS		+= -std=c++98
-CCFLAGS		+= -I include
+# CCFLAGS		+= -I include
 
 RM			= rm -rf
 
