@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 13:40:30 by scely             #+#    #+#             */
-/*   Updated: 2024/06/02 15:13:18 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/04 22:40:57 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Weapon::~Weapon(void)
 	return ;
 }
 
-std::string &Weapon::geType(void)
+const std::string &Weapon::geType(void)
 {
 	return (this->type);
 }
