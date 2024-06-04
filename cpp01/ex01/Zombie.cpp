@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 09:28:53 by scely             #+#    #+#             */
-/*   Updated: 2024/06/02 11:25:01 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/04 14:23:41 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 Zombie *zombieHorde( int n, std::string name)
 {
 	Zombie *horde;
-	try
+
+	horde = new(std::nothrow) Zombie[n];
+	if (horde == NULL)
 	{
-		horde = new Zombie[n];
-	} 
-	catch (const std::bad_alloc &e) 
-	{
-		std::cerr << "Erreur: Échec de l'allocation de mémoire: " << e.what() << std::endl;
+		std::cerr << "Erreur: Échec de l'allocation de mémoire" << std::endl;
 		exit (1);
 	}
 	for (int i = 0; i < n; i++)

@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 14:08:15 by scely             #+#    #+#             */
-/*   Updated: 2024/06/02 17:45:33 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/04 11:31:47 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ void HumanB::attack()
 {
 	std::cout << this->name;
 	std::cout << " attacks with their ";
+	if (this->arme == NULL)
+	{
+		std::cout << "hand" << std::endl;
+		return ;
+	}
 	std::cout << this->arme->geType() << std::endl;
 	return ;
 }

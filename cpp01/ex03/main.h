@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 13:37:13 by scely             #+#    #+#             */
-/*   Updated: 2024/06/02 14:44:09 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/04 18:48:52 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-#include "Weapon.h"
-#include "HumanA.h"
-#include "HumanB.h"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 #endif

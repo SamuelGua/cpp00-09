@@ -12,7 +12,7 @@ SRC 		= HumanA.cpp HumanB.cpp main.cpp Weapon.cpp
 
 OBJ 		= $(SRC:.cpp=.o)
 
-INCLUDE 	= HumanA.h HumanA.hpp HumanB.h HumanB.hpp main.h Weapon.h Weapon.hpp
+INCLUDE 	= HumanA.hpp HumanB.hpp main.h Weapon.hpp
 
 CC			= c++
 CFLAGS 		= -Wall -Wextra -Werror -g3

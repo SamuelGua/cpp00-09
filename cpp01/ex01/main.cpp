@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 09:13:48 by scely             #+#    #+#             */
-/*   Updated: 2024/06/02 10:55:17 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/04 14:53:26 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,10 @@ int main(int ac, char *av[])
 	{
 		if (!std::isdigit(av[1][i]))
 		{
-			std::cout << "Only numbers are accepted" << std::endl;
+			std::cout << "Only digits" << std::endl;
 			return (1);
 		}
 	}
-	// if ((n_zombie < 0 || n_zombie > USHRT_MAX))
 	if ((n_zombie < 0 || n_zombie > INT_MAX))
 	{
 		std::cout << "Not a positive numbers" << std::endl;

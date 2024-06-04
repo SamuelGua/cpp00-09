@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 19:23:18 by scely             #+#    #+#             */
-/*   Updated: 2024/06/02 22:08:31 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/04 18:46:38 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ int main()
 	TEST.complain("WARNING");
 	std::cout << "================================" << std::endl;
 	TEST.complain("ERROR");
+	std::cout << "================================" << std::endl;
+	TEST.complain("fqwqfqwffqwfqwfq");
 
 }
