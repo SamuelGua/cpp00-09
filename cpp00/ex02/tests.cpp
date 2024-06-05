@@ -18,6 +18,17 @@ int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
+void	Account::_displayTimestamp( void )
+{
+	std::time_t temps;
+	std::tm *local;
+	char buffer[20];
+
+	temps = std::time(0);
+	local = std::localtime(&temps);
+	std::strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S]", local);
+	std::cout << buffer << " ";
+}
 
 int Account::getNbAccounts(void)
 {

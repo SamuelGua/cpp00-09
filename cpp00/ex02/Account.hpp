@@ -47,17 +47,7 @@ private:
 	static int	_totalNbDeposits;
 	static int	_totalNbWithdrawals;
 
-	static void	_displayTimestamp( void )
-	{
-		std::time_t temps;
-		std::tm *local;
-		char buffer[20];
-
-		temps = std::time(0);
-		local = std::localtime(&temps);
-		std::strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S]", local);
-		std::cout << buffer << " ";
-	}
+	static void	_displayTimestamp( void );
 
 	int				_accountIndex;
 	int				_amount;

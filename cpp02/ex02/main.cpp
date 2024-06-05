@@ -5,22 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 19:23:18 by scely             #+#    #+#             */
-/*   Updated: 2024/06/05 09:53:49 by scely            ###   ########.fr       */
+/*   Created: 2024/06/05 10:33:23 by scely             #+#    #+#             */
+/*   Updated: 2024/06/05 14:50:13 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.h"
+#include "Fixed.hpp"
 
-int main()
+const int Fixed::nb_bits = 8;
+
+int main( void )
 {
-	Harl TEST;
-
-	TEST.complain("DEBUG");
-	std::cout << "================================" << std::endl;
-	TEST.complain("INFO");
-	std::cout << "================================" << std::endl;
-	TEST.complain("WARNING");
-	std::cout << "================================" << std::endl;
-	TEST.complain("ERROR");
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:49:28 by scely             #+#    #+#             */
-/*   Updated: 2024/06/04 22:50:10 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/05 09:52:44 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int main(int ac, char *av[])
 	if (ac != 4)
 	{
 		std::cout << "Error: Wrongs numbers of arguments" << std::endl;
-		std::cout << "	<  filename >" << std::endl;
-		std::cout << "	<  string or char to change >" << std::endl;
-		std::cout << "	<  new string or new char >" << std::endl;
+		std::cout << "	< [1] filename >" << std::endl;
+		std::cout << "	< [2] string or char to change >" << std::endl;
+		std::cout << "	< [3] new string or new char >" << std::endl;
 		return (1);
 	}
 	s1 = std::strlen(av[2]);

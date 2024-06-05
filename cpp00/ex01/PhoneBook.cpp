@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 09:07:11 by scely             #+#    #+#             */
-/*   Updated: 2024/06/04 09:19:21 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/04 10:25:57 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ void PhoneBook::print_directory(void)
 	std::string input;
 
 	i = -1;
-	std::cout << " =============================================" << std::endl;
-	std::cout << " | INDEX |   FIRST   |   LAST    | NICKNAME  |" << std::endl;
-	std::cout << " =============================================" << std::endl;
+	std::cout << " ==========================================" << std::endl;
+	std::cout << " | INDEX |   FIRST  |   LAST   | NICKNAME |" << std::endl;
+	std::cout << " ==========================================" << std::endl;
 	while (++i < 8)
 		this->contact[i].print_contact(i);
-	std::cout << " =============================================" << std::endl;
+	std::cout << " ==========================================" << std::endl;
 	std::cout << "Enter a index : ";
 	if (!std::getline(std::cin, input))
 	{
@@ -53,7 +53,7 @@ void PhoneBook::print_directory(void)
 	i = std::atoi(input.c_str()) - 1;
 	if (i > 7 || i < 0)
 		std::cerr << "Incorret numbers" << std::endl;
-	else if (this->contact[i].print_contact(i))
+	else if (this->contact[i].get_contact())
 			std::cout << "Is empty" << std::endl;
 	return ;
 }

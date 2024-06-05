@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 09:34:11 by scely             #+#    #+#             */
-/*   Updated: 2024/05/31 21:31:55 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/04 10:19:18 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Contact
 		~Contact(void);
 		bool set_value( void );
 		int print_contact(int i);
+		int get_contact(void);
 };
 
 #endif

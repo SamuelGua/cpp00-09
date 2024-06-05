@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 09:13:48 by scely             #+#    #+#             */
-/*   Updated: 2024/06/04 14:53:26 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/05 09:50:56 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(int ac, char *av[])
 		std::cout << "Not a positive numbers" << std::endl;
 		return (1);
 	};
-	Zombie *horde = zombieHorde(n_zombie, "la miff");
+	Zombie *horde = zombieHorde(n_zombie, "Fallout");
 	for(int i = 0;  i < n_zombie; i++)
 	{
 		std::cout << "["<< i << "] :";

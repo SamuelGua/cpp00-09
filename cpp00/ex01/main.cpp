@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 09:36:15 by scely             #+#    #+#             */
-/*   Updated: 2024/06/04 09:16:31 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/04 10:33:51 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,23 @@ void print(std::string str)
 {
 	int i;
 
-	i = -1;
-	while (++i < 10 && i < (int)str.length())
-		std::cout << str[i];
-	if (str.length() > 9)
-		std::cout << ".";
-	else
+	for (int x = 0; x + (int)str.length() < 10; x++)
 	{
-		while (i++ < 11)
 			std::cout << " ";
 	}
+	i = -1;
+	if ((int)str.length() > 10)
+	{
+		while (++i < 9 && i < (int)str.length())
+			std::cout << str[i];
+	}
+	else
+	{
+		while (++i < 10 && i < (int)str.length())
+			std::cout << str[i];
+	}
+	if (str.length() > 10)
+		std::cout << ".";
 }
 
 int add_phone(PhoneBook *directory)

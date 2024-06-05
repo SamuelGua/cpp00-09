@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 09:07:18 by scely             #+#    #+#             */
-/*   Updated: 2024/06/04 09:27:46 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/04 10:20:41 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,17 @@ bool Contact::set_value( void )
 		return (1);
 	if (insert_value(&this->darkest_secret, "Darkest secret : "))
 		return (1);
+	return (0);
+}
+
+int Contact::get_contact( void )
+{
+	if (this->first_name.empty())
+		return (1);
+	std::cout << "First name : " << this->first_name << std::endl;
+	std::cout << "Last name : " << this->last_name << std::endl;
+	std::cout << "Nickname : " << this->nickname << std::endl;
+	std::cout << "Phone number : " << this->phone_number << std::endl;
+	std::cout << "Darkest secret : " << this->darkest_secret << std::endl;
 	return (0);
 }

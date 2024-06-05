@@ -5,22 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 19:23:18 by scely             #+#    #+#             */
-/*   Updated: 2024/06/05 09:53:49 by scely            ###   ########.fr       */
+/*   Created: 2024/06/05 18:31:20 by scely             #+#    #+#             */
+/*   Updated: 2024/06/05 19:10:00 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.h"
+#include "ClapTrap.hpp"
 
 int main()
 {
-	Harl TEST;
+	{
+		ClapTrap robot("Jack");
 
-	TEST.complain("DEBUG");
-	std::cout << "================================" << std::endl;
-	TEST.complain("INFO");
-	std::cout << "================================" << std::endl;
-	TEST.complain("WARNING");
-	std::cout << "================================" << std::endl;
-	TEST.complain("ERROR");
+		robot.attack("Dilara");
+		for (int i = 0; i < 4; i++)
+			robot.beRepaired(5);
+		for (int i = 0; i < 4; i++)
+			robot.beRepaired(5);
+		
+	}
+
 }

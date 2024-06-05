@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 13:39:36 by scely             #+#    #+#             */
-/*   Updated: 2024/06/04 22:42:34 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/05 09:51:37 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main()
 		bob.attack();
 	}
 	{
+		std::cout << "================================" << std::endl;
 		Weapon club = Weapon("crude spiked club");
 		
 		HumanB jim("Jim");

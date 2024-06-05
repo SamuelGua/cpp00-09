@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 19:23:18 by scely             #+#    #+#             */
-/*   Updated: 2024/06/05 09:53:49 by scely            ###   ########.fr       */
+/*   Created: 2024/06/05 19:18:29 by scely             #+#    #+#             */
+/*   Updated: 2024/06/05 19:21:06 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.h"
+#ifndef SCAVTRAP
+# define SCAVTRAP
 
-int main()
+class ScavTrap
 {
-	Harl TEST;
+private:
+	/* data */
+public:
+	ScavTrap(/* args */);
+	~ScavTrap();
+};
 
-	TEST.complain("DEBUG");
-	std::cout << "================================" << std::endl;
-	TEST.complain("INFO");
-	std::cout << "================================" << std::endl;
-	TEST.complain("WARNING");
-	std::cout << "================================" << std::endl;
-	TEST.complain("ERROR");
+ScavTrap::ScavTrap(/* args */)
+{
 }
+
+ScavTrap::~ScavTrap()
+{
+}
+
+
+#endif

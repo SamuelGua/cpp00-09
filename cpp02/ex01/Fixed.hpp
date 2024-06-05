@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 19:23:18 by scely             #+#    #+#             */
-/*   Updated: 2024/06/05 09:53:49 by scely            ###   ########.fr       */
+/*   Created: 2024/06/05 10:33:40 by scely             #+#    #+#             */
+/*   Updated: 2024/06/05 14:47:08 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.h"
+#ifndef FIXED_HPP
+#	define FIXED_HPP
 
-int main()
+#include <cctype>
+#include <iostream>
+
+class Fixed
 {
-	Harl TEST;
+	private:
+		int					number;
+		static const int	nb_bits;
+	public:
+		Fixed();
+		Fixed(Fixed &copy);
+		~Fixed();
+		Fixed *operator=(Fixed &add);
+		int getRawBits ( void ) const;
+		void setRawBits( int const raw );
 
-	TEST.complain("DEBUG");
-	std::cout << "================================" << std::endl;
-	TEST.complain("INFO");
-	std::cout << "================================" << std::endl;
-	TEST.complain("WARNING");
-	std::cout << "================================" << std::endl;
-	TEST.complain("ERROR");
-}
+};
+
+#endif
