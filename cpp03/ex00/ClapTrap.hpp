@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:56:31 by scely             #+#    #+#             */
-/*   Updated: 2024/06/05 18:50:51 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/06 18:05:37 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ class ClapTrap
 		int attack_p;
 
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap &copy);
 		~ClapTrap();
+		ClapTrap& operator=(const ClapTrap &copy); 
 		void attack(const std::string &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
-		// faire le copy
-		// faire la surcharge d'operateur
 };
-
 
 #endif

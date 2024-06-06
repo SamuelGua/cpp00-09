@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:55:27 by scely             #+#    #+#             */
-/*   Updated: 2024/06/06 18:42:24 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/06 19:40:36 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void ClapTrap::attack(const std::string &target)
 	else if (this->energy_p && this->health_p)
 	{
 		this->energy_p -= 1;
-		std::cout << this->name << " attacks " << target;
+		std::cout << this->name << " attacks like a FragTrap " << target;
 		std::cout << ", he left " << this->energy_p << " energy points" << std::endl;
 	}
 	else

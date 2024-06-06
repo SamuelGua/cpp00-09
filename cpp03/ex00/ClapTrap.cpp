@@ -6,11 +6,24 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:55:27 by scely             #+#    #+#             */
-/*   Updated: 2024/06/05 19:10:22 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/06 18:42:19 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+/**************************************************************************************/
+/*                              Constructeur et destructeur                           */
+/**************************************************************************************/
+
+ClapTrap::ClapTrap()
+{
+	std::cout << GREEN << "Default Constructor ClapTrap is called" << RESET << std::endl; 
+	this->name = "ClapTrap";
+	this->attack_p = 0;
+	this->energy_p = 10;
+	this->health_p = 10;
+}
 
 ClapTrap::ClapTrap(std::string name)
 {
@@ -18,10 +31,44 @@ ClapTrap::ClapTrap(std::string name)
 	this->name = name;
 	this->attack_p = 0;
 	this->energy_p = 10;
-	this->health_p = 10;
-	
+	this->health_p = 10;	
+}
+
+ClapTrap::ClapTrap(const ClapTrap &copy)
+{
+	std::cout << GREEN << "Copy connstructor ClapTrap is called" << RESET << std::endl; 
+	if (this !=  &copy)
+		*this = copy;
 	return ;
 }
+
+ClapTrap::~ClapTrap()
+{
+	std::cout << RED << "Destructor ClapTrap is called" << RESET << std::endl;
+	return ;
+}
+
+/**************************************************************************************/
+/*                              Surcharge d'operator                                  */
+/**************************************************************************************/
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
+{
+	if (this != &copy)
+	{
+		this->name = copy.name;
+		this->attack_p = copy.attack_p;
+		this->energy_p = copy.energy_p;
+		this->health_p = copy.health_p;
+	}
+	return (*this);
+}
+
+/**************************************************************************************/
+/*                                      Methodes                                      */
+/**************************************************************************************/
+
+
 
 void ClapTrap::attack(const std::string &target)
 {
@@ -65,11 +112,5 @@ void ClapTrap::beRepaired(unsigned int amount)
 	}
 	else
 		std::cout << this->name << " has no more energy to do a action" << std::endl;
-	return ;
-}
-
-ClapTrap::~ClapTrap()
-{
-	std::cout << RED << "Destructor ClapTrap is called" << RESET << std::endl;
 	return ;
 }

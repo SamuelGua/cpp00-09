@@ -1,66 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 18:08:41 by scely             #+#    #+#             */
-/*   Updated: 2024/06/06 18:46:44 by scely            ###   ########.fr       */
+/*   Created: 2024/06/06 19:16:54 by scely             #+#    #+#             */
+/*   Updated: 2024/06/06 19:26:51 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+
+#include "FragTrap.hpp"
 
 /**************************************************************************************/
 /*                              Constructeur et destructeur                           */
 /**************************************************************************************/
 
-ScavTrap::ScavTrap()
+FragTrap::FragTrap()
 {
-	std::cout << GREEN << "Default Constructor ScavTrap is called" << RESET << std::endl;
-	this->name = "Scavtrap";
-	this->attack_p = 20;
+	std::cout << GREEN << "Default Constructor FragTrap is called" << RESET << std::endl;
+	this->name = "FragTrap";
+	this->attack_p = 30;
+	this->energy_p = 100;
 	this->health_p = 100;
-	this->energy_p = 50;
 }
 
-ScavTrap::ScavTrap(std::string name)
+FragTrap::FragTrap(std::string name)
 {
-	std::cout << GREEN << "Constructor ScavTrap is called" << RESET << std::endl; 
+	std::cout << GREEN << "Constructor FragTrap is called" << RESET << std::endl; 
 	this->name = name;
-	this->attack_p = 20;
+	this->attack_p = 30;
+	this->energy_p = 100;
 	this->health_p = 100;
-	this->energy_p = 50;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy)
+FragTrap::FragTrap(FragTrap &copy)
 {
-	std::cout << GREEN << "Copy connstructor ScavTrap is called" << RESET << std::endl; 
-	if (this != &copy)
+	std::cout << GREEN << "Copy connstructor FragTrap is called" << RESET << std::endl; 
+	if(this != &copy)
 		*this = copy;
-	return ;
 }
 
-
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-	std::cout << RED << "Destructor ScavTrap is called" << RESET << std::endl;
-	return ;	
+	std::cout << RED << "Destructor FragTrap is called" << RESET << std::endl;
+	return ;
 }
 
 /**************************************************************************************/
 /*                              Surcharge d'operator                                  */
 /**************************************************************************************/
 
-ScavTrap& ScavTrap::operator=(const ScavTrap &copy)
+FragTrap& FragTrap::operator=(const FragTrap &copy)
 {
 	if (this != &copy)
 	{
-		this->name = copy.name;
+		this->name = name;
 		this->attack_p = copy.attack_p;
-		this->energy_p = energy_p;
-		this->health_p = health_p;
+		this->energy_p = copy.energy_p;
+		this->health_p = copy.health_p;
 	}
 	return (*this);
 }
@@ -69,13 +68,13 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &copy)
 /*                                      Methodes                                      */
 /**************************************************************************************/
 
-void ScavTrap::guardGate()
+void FragTrap::highFivesGuys()
 {
 	if (!health_p)
 		std::cout << this->name << " he is dead" << std::endl;
 	else if (energy_p)
-		std::cout << this->name << " is now in Gate keeper mode" << std::endl;
+		std::cout << this->name << " 😁 positive high fives 🙌" << std::endl;
 	else
-		std::cout << this->name << " no more energy to do a action" << std::endl;
-	return ;
+		std::cout << this->name << " has no more energy to do a action" << std::endl;
+	return ;	
 }

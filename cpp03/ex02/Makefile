@@ -5,14 +5,14 @@ COLOR_YELLOW = \033[93m
 COLOR_BOLD = \033[1m
 MAKEFLAGS += --no-print-directory
 
-NAME		:= scavtrap
+NAME		:= fragtrap
 
 
-SRC 		= ClapTrap.cpp main.cpp ScavTrap.cpp
+SRC 		= ClapTrap.cpp main.cpp FragTrap.cpp
 
 OBJ 		= $(SRC:.cpp=.o)
 
-INCLUDE 	= ClapTrap.hpp ScavTrap.hpp
+INCLUDE 	= ClapTrap.hpp FragTrap.hpp
 
 CC			= c++
 CFLAGS 		= -Wall -Wextra -Werror -g3
