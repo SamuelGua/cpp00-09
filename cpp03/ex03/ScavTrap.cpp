@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:08:41 by scely             #+#    #+#             */
-/*   Updated: 2024/06/06 18:46:44 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/06 22:49:17 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ ScavTrap::ScavTrap(std::string name)
 	this->energy_p = 50;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy)
+ScavTrap::ScavTrap(ScavTrap &copy) : ClapTrap()
 {
 	std::cout << GREEN << "Copy connstructor ScavTrap is called" << RESET << std::endl; 
 	if (this != &copy)

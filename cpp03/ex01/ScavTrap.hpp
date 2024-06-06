@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 19:18:29 by scely             #+#    #+#             */
-/*   Updated: 2024/06/06 18:43:16 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/06 22:34:05 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap(std::string name);
 		ScavTrap(const ScavTrap &copy);
 		ScavTrap &operator=(const ScavTrap &copy);
+		void attack(const std::string &target);
 		~ScavTrap();
 		void guardGate();
 };

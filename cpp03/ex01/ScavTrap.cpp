@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:08:41 by scely             #+#    #+#             */
-/*   Updated: 2024/06/06 18:46:44 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/06 22:37:34 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ ScavTrap::ScavTrap(std::string name)
 	this->energy_p = 50;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy)
+ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap()
 {
 	std::cout << GREEN << "Copy connstructor ScavTrap is called" << RESET << std::endl; 
 	if (this != &copy)
@@ -74,8 +74,27 @@ void ScavTrap::guardGate()
 	if (!health_p)
 		std::cout << this->name << " he is dead" << std::endl;
 	else if (energy_p)
-		std::cout << this->name << " is now in Gate keeper mode" << std::endl;
+	{
+		this->energy_p -= 1;
+		std::cout << this->name << " is now in Gate keeper mode. ";
+		std::cout << "Now you have only " << this->energy_p << " energy point" << std::endl;
+	}
 	else
 		std::cout << this->name << " no more energy to do a action" << std::endl;
+	return ;
+}
+
+void ScavTrap::attack(const std::string &target)
+{
+	if (!health_p)
+		std::cout << this->name << " he is dead" << std::endl;
+	else if (this->energy_p && this->health_p)
+	{
+		this->energy_p -= 1;
+		std::cout << this->name << " attacks in a SCAV_MODE " << target;
+		std::cout << ", he left " << this->energy_p << " energy points" << std::endl;
+	}
+	else
+		std::cout << this->name << "No more energy to do a action" << std::endl;
 	return ;
 }

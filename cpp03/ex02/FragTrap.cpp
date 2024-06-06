@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:16:54 by scely             #+#    #+#             */
-/*   Updated: 2024/06/06 19:26:51 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/06 22:40:00 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ FragTrap::FragTrap(std::string name)
 	this->health_p = 100;
 }
 
-FragTrap::FragTrap(FragTrap &copy)
+FragTrap::FragTrap(FragTrap &copy) : ClapTrap()
 {
 	std::cout << GREEN << "Copy connstructor FragTrap is called" << RESET << std::endl; 
 	if(this != &copy)

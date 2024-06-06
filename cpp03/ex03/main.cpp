@@ -6,11 +6,11 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 18:31:20 by scely             #+#    #+#             */
-/*   Updated: 2024/06/06 19:27:58 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/06 23:32:28 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
@@ -31,7 +31,15 @@ int main()
 	{
 		FragTrap robot("Jack");
 		robot.attack("Kylian");
-		robot.guardGate();
 		robot.highFivesGuys();
+	}
+	{
+		DiamondTrap robot("Jack");
+		robot.attack("RedHair");
+		robot.highFivesGuys();
+		robot.guardGate();
+		robot.takeDamage(15);
+		robot.beRepaired(12);
+		robot.whoAmI();
 	}
 }

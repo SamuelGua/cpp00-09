@@ -33,7 +33,8 @@ clean:
 	@$(RM) $(OBJ)
 	@echo "$(COLOR_RED)Object files are deleted 🗑️$(COLOR_RESET)"
 
-fclean: clean
+fclean:
+	@$(MAKE) clean
 	@$(RM) $(NAME)
 	@echo "$(COLOR_RED)$(COLOR_BOLD)All files are deleted 🗑️$(COLOR_RESET)"
 

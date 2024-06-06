@@ -5,17 +5,18 @@ COLOR_YELLOW = \033[93m
 COLOR_BOLD = \033[1m
 MAKEFLAGS += --no-print-directory
 
-NAME		:= fragtrap
+NAME		:= DaimondTrap
 
 
-SRC 		= ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp
+SRC 		= ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 OBJ 		= $(SRC:.cpp=.o)
 
-INCLUDE 	= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+INCLUDE 	= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 
 CC			= c++
 CFLAGS 		= -Wall -Wextra -Werror -g3
+CFLAGS		+= -Wshadow -Wno-shadow
 CFLAGS		+= -std=c++98
 CCFLAGS		+= -I include
 
@@ -33,7 +34,8 @@ clean:
 	@$(RM) $(OBJ)
 	@echo "$(COLOR_RED)Object files are deleted 🗑️$(COLOR_RESET)"
 
-fclean: clean
+fclean: 
+	@$(MAKE) clean
 	@$(RM) $(NAME)
 	@echo "$(COLOR_RED)$(COLOR_BOLD)All files are deleted 🗑️$(COLOR_RESET)"
 

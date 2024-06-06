@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:53:54 by scely             #+#    #+#             */
-/*   Updated: 2024/06/06 19:19:07 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/06 23:06:37 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ScavTrap.hpp"
 
-class FragTrap : public ScavTrap
+class FragTrap : virtual public ClapTrap
 {
 private:
 	/* data */
