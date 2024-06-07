@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 18:53:54 by scely             #+#    #+#             */
-/*   Updated: 2024/06/07 05:39:24 by scely            ###   ########.fr       */
+/*   Created: 2024/06/05 10:33:23 by scely             #+#    #+#             */
+/*   Updated: 2024/06/05 14:50:13 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#include "Fixed.hpp"
 
-#include "ClapTrap.hpp"
+const int Fixed::nb_bits = 8;
 
-class FragTrap : public ClapTrap
+int main( void )
 {
-private:
-
-public:
-	FragTrap();
-	FragTrap(std::string name);
-	FragTrap(FragTrap &copy);
-	~FragTrap();
-	FragTrap& operator=(const FragTrap &copy);
-	void highFivesGuys(void);
-};
-
-#endif
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	return 0;
+}

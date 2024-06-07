@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:56:31 by scely             #+#    #+#             */
-/*   Updated: 2024/06/06 18:07:00 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/07 05:34:18 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class ClapTrap
 {
 	protected:
 		std::string name;
-		int health_p;
-		int energy_p;
-		int attack_p;
+		int hit_points;
+		int energy_points;
+		int attack_damage;
 
 	public:
 		ClapTrap();

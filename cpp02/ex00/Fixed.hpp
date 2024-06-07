@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 10:33:40 by scely             #+#    #+#             */
-/*   Updated: 2024/06/07 15:19:49 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/07 06:13:53 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,39 +23,11 @@ class Fixed
 		static const int	nb_bits;
 	public:
 		Fixed();
-		Fixed(const Fixed &copy);
-		Fixed(const float number);
-		Fixed(const int number);
+		Fixed(Fixed &copy);
 		~Fixed();
-		
-		Fixed &operator=(const Fixed &copy);
-		Fixed operator+(const Fixed &other) const;
-		Fixed operator-(const Fixed &other) const;
-		Fixed operator*(const Fixed &other) const;
-		Fixed operator/(const Fixed &other) const;
-		Fixed& operator++();
-		Fixed operator++(int);
-		Fixed& operator--();
-		Fixed operator--(int);
-		bool operator<(const Fixed& other) const;
-		bool operator>(const Fixed& other) const;
-		bool operator<=(const Fixed& other) const;
-		bool operator>=(const Fixed& other) const;
-		bool operator==(const Fixed& other) const;
-		bool operator!=(const Fixed& other) const;
-
-		static float min(const Fixed &a, const Fixed &b);
-		static float min(Fixed &a, Fixed &b);
-		static float max(const Fixed &a, const Fixed &b);
-		static float max(Fixed &a, Fixed &b);
-		
-		
+		Fixed *operator=(Fixed &add);
 		int getRawBits ( void ) const;
 		void setRawBits( int const raw );
-		float toFloat(void) const ;
-		int toInt(void) const ;
 };
-
-std::ostream& operator<<(std::ostream &output, const Fixed& obj);
 
 #endif

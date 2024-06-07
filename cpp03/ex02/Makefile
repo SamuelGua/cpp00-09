@@ -5,7 +5,7 @@ COLOR_YELLOW = \033[93m
 COLOR_BOLD = \033[1m
 MAKEFLAGS += --no-print-directory
 
-NAME		:= fragtrap
+NAME		:= FragTrap
 
 
 SRC 		= ClapTrap.cpp main.cpp FragTrap.cpp

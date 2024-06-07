@@ -5,17 +5,16 @@ COLOR_YELLOW = \033[93m
 COLOR_BOLD = \033[1m
 MAKEFLAGS += --no-print-directory
 
-NAME		:= ScavTrap
+NAME		:= Canonique
 
 
-SRC 		= ClapTrap.cpp main.cpp ScavTrap.cpp
-
+SRC 		= main.cpp Fixed.cpp
 OBJ 		= $(SRC:.cpp=.o)
 
-INCLUDE 	= ClapTrap.hpp ScavTrap.hpp
+INCLUDE 	= Fixed.hpp
 
 CC			= c++
-CFLAGS 		= -Wall -Wextra -Werror -g3
+CFLAGS 		= -Wall -Wextra -Werror
 CFLAGS		+= -std=c++98
 CCFLAGS		+= -I include
 
@@ -33,8 +32,7 @@ clean:
 	@$(RM) $(OBJ)
 	@echo "$(COLOR_RED)Object files are deleted 🗑️$(COLOR_RESET)"
 
-fclean:
-	@$(MAKE) clean
+fclean: clean
 	@$(RM) $(NAME)
 	@echo "$(COLOR_RED)$(COLOR_BOLD)All files are deleted 🗑️$(COLOR_RESET)"
 

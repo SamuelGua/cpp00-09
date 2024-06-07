@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:08:41 by scely             #+#    #+#             */
-/*   Updated: 2024/06/06 22:49:17 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/07 05:34:31 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ ScavTrap::ScavTrap()
 {
 	std::cout << GREEN << "Default Constructor ScavTrap is called" << RESET << std::endl;
 	this->name = "Scavtrap";
-	this->attack_p = 20;
-	this->health_p = 100;
-	this->energy_p = 50;
+	this->attack_damage = 20;
+	this->hit_points = 100;
+	this->energy_points = 50;
 }
 
 ScavTrap::ScavTrap(std::string name)
 {
 	std::cout << GREEN << "Constructor ScavTrap is called" << RESET << std::endl; 
 	this->name = name;
-	this->attack_p = 20;
-	this->health_p = 100;
-	this->energy_p = 50;
+	this->attack_damage = 20;
+	this->hit_points = 100;
+	this->energy_points = 50;
 }
 
 ScavTrap::ScavTrap(ScavTrap &copy) : ClapTrap()
@@ -58,9 +58,9 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &copy)
 	if (this != &copy)
 	{
 		this->name = copy.name;
-		this->attack_p = copy.attack_p;
-		this->energy_p = energy_p;
-		this->health_p = health_p;
+		this->attack_damage = copy.attack_damage;
+		this->energy_points = energy_points;
+		this->hit_points = hit_points;
 	}
 	return (*this);
 }
@@ -71,9 +71,9 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &copy)
 
 void ScavTrap::guardGate()
 {
-	if (!health_p)
+	if (!hit_points)
 		std::cout << this->name << " he is dead" << std::endl;
-	else if (energy_p)
+	else if (energy_points)
 		std::cout << this->name << " is now in Gate keeper mode" << std::endl;
 	else
 		std::cout << this->name << " no more energy to do a action" << std::endl;

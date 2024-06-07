@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:31:44 by scely             #+#    #+#             */
-/*   Updated: 2024/06/06 23:36:37 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/07 05:43:58 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ DiamondTrap::DiamondTrap()
 {
 	std::cout << GREEN << "Default Constructor DiamondTrap is called" << RESET << std::endl;
 	this->name = "DiamondTrap";
-	this->health_p = FragTrap::health_p;
-	this->energy_p = ScavTrap::energy_p;
-	this->attack_p = FragTrap::attack_p;
+	this->hit_points = FragTrap::hit_points;
+	this->energy_points = ScavTrap::energy_points;
+	this->attack_damage = FragTrap::attack_damage;
 }
 
 DiamondTrap::DiamondTrap(std::string name)
 {
 	std::cout << GREEN << "Constructor DiamondTrap is called" << RESET << std::endl; 
 	this->name = name + "_clap_name";
-	this->health_p = FragTrap::health_p;
-	this->energy_p = ScavTrap::energy_p;
-	this->attack_p = FragTrap::attack_p;
+	this->hit_points = FragTrap::hit_points;
+	this->energy_points = ScavTrap::energy_points;
+	this->attack_damage = FragTrap::attack_damage;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& copy) : ClapTrap(), ScavTrap(), FragTrap()
@@ -54,9 +54,9 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &copy)
 {
 	if (this != &copy)
 	{
-		this->attack_p = copy.attack_p;
-		this->energy_p = copy.energy_p;
-		this->health_p = copy.health_p;
+		this->attack_damage = copy.attack_damage;
+		this->energy_points = copy.energy_points;
+		this->hit_points = copy.hit_points;
 	}
 	return (*this);
 }
@@ -67,11 +67,11 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &copy)
 
 void DiamondTrap::whoAmI()
 {
-	if (!health_p)
+	if (!hit_points)
 		std::cout << this->name << " he is dead" << std::endl;
-	else if (energy_p)
+	else if (energy_points)
 	{
-		energy_p -= 1;
+		energy_points -= 1;
 		std::cout << this->name << " is my name, but where I am really a Frag ? a Trap ? or a FrapTrag ?" << std::endl;
 	}
 	else
