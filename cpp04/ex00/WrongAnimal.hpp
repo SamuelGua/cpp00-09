@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongWrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 10:33:23 by scely             #+#    #+#             */
-/*   Updated: 2024/06/10 09:45:15 by scely            ###   ########.fr       */
+/*   Created: 2024/06/10 15:58:18 by scely             #+#    #+#             */
+/*   Updated: 2024/06/11 11:36:50 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef WrongAnimal_HPP
+# define WrongAnimal_HPP
 
-#include "main.h"
+#include <string>
+#include <iostream>
+#include "Animal.hpp"
 
-const int Fixed::nb_bits = 8;
-
-int main( void )
+class WrongAnimal
 {
-	int i = 0;
+	protected:
+		std::string type;
+	public:
+		WrongAnimal();
+		WrongAnimal(std::string type);
+		~WrongAnimal();
+		WrongAnimal(const WrongAnimal& copy);
+		WrongAnimal& operator=(const WrongAnimal& copy);
+		std::string getType() const ;
+		void makeSound() const ;
+};
 
-	Point a(0,0);
-	Point b(0,8);
-	Point c(6,0);
-	Point p(1.09,3.08);
-
-	i = bsp(a, b, c, p);
-	if (i)
-		std::cout << "Le point est dans le triangle" << std::endl;
-	else		
-		std::cout << "Le point n'est pas dans le triangle" << std::endl;
-}
+#endif

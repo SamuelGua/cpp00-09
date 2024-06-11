@@ -1,54 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.cpp                                          :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 12:06:03 by scely             #+#    #+#             */
-/*   Updated: 2024/06/10 09:20:54 by scely            ###   ########.fr       */
+/*   Created: 2024/06/10 15:57:47 by scely             #+#    #+#             */
+/*   Updated: 2024/06/11 11:42:55 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
-#include "Fixed.hpp"
-
+#include "Animal.hpp"
 
 /**************************************************************************************/
-/*                              Constructor et destructor                             */
+/*                              Constructeur et destructeur                           */
 /**************************************************************************************/
 
-Point::Point() : x(0), y(0)
+Animal::Animal(std::string type)
 {
+	std::cout << GREEN << "Constructor Animal is called" << RESET << std::endl;
+	this->type = type;
 }
 
-Point::Point(const Fixed &x, const Fixed &y) : x(x), y(y)
+Animal::Animal()
 {
+	std::cout << GREEN << "Default constructor Animal is called" << RESET << std::endl;
+	this->type = "Animal";
 }
 
-Point::Point(const float x, const float y) : x(x), y(y)
+Animal::Animal(const Animal &copy)
 {
-}	
-
-Point::Point(const Point &copy) : x(copy.x), y(copy.y)
-{
+	std::cout << GREEN << "Copy constructor Animal is called" << RESET << std::endl;
+	*this = copy;
 }
 
-Point::~Point() 
+Animal::~Animal()
 {
+	std::cout << RED <<"Destructor Animal is called" << RESET << std::endl;
 }
+// virtual Animal::~Animal()
+// {
+// 	std::cout << RED <<"Destructor Animal is called" << RESET << std::endl;
+// }
 
 /**************************************************************************************/
-/*                              Surcharge d'operateur                                 */
+/*                              Surcharge d'operator                                  */
 /**************************************************************************************/
 
-Point& Point::operator=(const Point& copy)
+Animal& Animal::operator=(const Animal& copy)
 {
 	if (this != &copy)
-	{
-		(Fixed)this->x = copy.x;
-		(Fixed)this->y = copy.y;
-	}
+		this->type = copy.type;
 	return (*this);
 }
 
@@ -56,12 +58,12 @@ Point& Point::operator=(const Point& copy)
 /*                                      Methodes                                      */
 /**************************************************************************************/
 
-float Point::getXValue()
+void Animal::makeSound() const 
 {
-	return(this->x.toFloat());
+	std::cout << this->type << " make a sound: webwufbqfefqofq" <<std::endl;
 }
 
-float Point::getYValue()
+std::string Animal::getType() const 
 {
-	return(this->y.toFloat());
+	return (this->type);
 }

@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:16:54 by scely             #+#    #+#             */
-/*   Updated: 2024/06/07 05:34:10 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/10 14:16:05 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,9 @@ FragTrap& FragTrap::operator=(const FragTrap &copy)
 
 void FragTrap::highFivesGuys()
 {
-	if (!hit_points)
-		std::cout << this->name << " he is dead" << std::endl;
-	else if (energy_points)
+	if (hit_points)
 		std::cout << this->name << " 😁 positive high fives 🙌" << std::endl;
 	else
-		std::cout << this->name << " has no more energy to do a action" << std::endl;
+		std::cout << this->name << " he is dead" << std::endl;
 	return ;	
 }

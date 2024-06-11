@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 10:33:23 by scely             #+#    #+#             */
-/*   Updated: 2024/06/10 09:45:15 by scely            ###   ########.fr       */
+/*   Created: 2024/06/10 15:58:18 by scely             #+#    #+#             */
+/*   Updated: 2024/06/11 13:30:47 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-#include "main.h"
+#include "main.hpp"
 
-const int Fixed::nb_bits = 8;
-
-int main( void )
+class Animal
 {
-	int i = 0;
+	protected:
+		std::string type;
+	public:
+		Animal();
+		Animal(std::string type);
+		virtual ~Animal();
+		Animal(const Animal& copy);
+		Animal& operator=(const Animal& copy);
+		std::string getType() const ;
+		virtual void makeSound() const ;
+};
 
-	Point a(0,0);
-	Point b(0,8);
-	Point c(6,0);
-	Point p(1.09,3.08);
-
-	i = bsp(a, b, c, p);
-	if (i)
-		std::cout << "Le point est dans le triangle" << std::endl;
-	else		
-		std::cout << "Le point n'est pas dans le triangle" << std::endl;
-}
+#endif

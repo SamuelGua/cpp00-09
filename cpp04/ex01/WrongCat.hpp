@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat copy.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 10:33:23 by scely             #+#    #+#             */
-/*   Updated: 2024/06/10 09:45:15 by scely            ###   ########.fr       */
+/*   Created: 2024/06/11 10:31:16 by scely             #+#    #+#             */
+/*   Updated: 2024/06/11 11:36:32 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef WrongCat_HPP
+# define WrongCat_HPP
 
-#include "main.h"
+#include "main.hpp"
 
-const int Fixed::nb_bits = 8;
-
-int main( void )
+class WrongCat : public WrongAnimal
 {
-	int i = 0;
+	private:
+		
+	public:
+		WrongCat();
+		WrongCat(std::string name);
+		WrongCat(WrongCat &copy);
+		WrongCat& operator=(const WrongCat& copy);
+		~WrongCat();
+		void makeSound() const;
+};
 
-	Point a(0,0);
-	Point b(0,8);
-	Point c(6,0);
-	Point p(1.09,3.08);
-
-	i = bsp(a, b, c, p);
-	if (i)
-		std::cout << "Le point est dans le triangle" << std::endl;
-	else		
-		std::cout << "Le point n'est pas dans le triangle" << std::endl;
-}
+#endif

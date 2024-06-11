@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 11:39:48 by scely             #+#    #+#             */
-/*   Updated: 2024/06/09 13:09:28 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/10 09:21:02 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "Fixed.hpp"
 
-class Point : public Fixed
+class Point
 {
 	private:
 		const Fixed x;
@@ -28,7 +28,7 @@ class Point : public Fixed
 		~Point();
 		float getXValue();
 		float getYValue();
-		// Point& operator=(const Point& copy);
+		Point& operator=(const Point& copy);
 };
 
 #endif

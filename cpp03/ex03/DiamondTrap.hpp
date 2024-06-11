@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:31:41 by scely             #+#    #+#             */
-/*   Updated: 2024/06/06 23:26:07 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/10 15:25:42 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap& operator=(const DiamondTrap &copy);
 		DiamondTrap(const DiamondTrap &copy);
 		void whoAmI();
+		// void showStatus();
 };
 
 

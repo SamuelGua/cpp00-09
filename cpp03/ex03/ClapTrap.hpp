@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:56:31 by scely             #+#    #+#             */
-/*   Updated: 2024/06/07 05:34:18 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/10 15:42:25 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ class ClapTrap
 		void attack(const std::string &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
+		void getClapName();
+		void showStatus();
 };
+
 
 
 #endif

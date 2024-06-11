@@ -5,14 +5,14 @@ COLOR_YELLOW = \033[93m
 COLOR_BOLD = \033[1m
 MAKEFLAGS += --no-print-directory
 
-NAME		:= DiamondTrap
+NAME		:= Polymorphisme
 
 
-SRC 		= ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRC 		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
 OBJ 		= $(SRC:.cpp=.o)
 
-INCLUDE 	= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
+INCLUDE 	= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
 
 CC			= c++
 CFLAGS 		= -Wall -Wextra -Werror -g3

@@ -8,11 +8,11 @@ MAKEFLAGS += --no-print-directory
 NAME		:= FragTrap
 
 
-SRC 		= ClapTrap.cpp main.cpp FragTrap.cpp
+SRC 		= ClapTrap.cpp main.cpp FragTrap.cpp ScavTrap.cpp
 
 OBJ 		= $(SRC:.cpp=.o)
 
-INCLUDE 	= ClapTrap.hpp FragTrap.hpp
+INCLUDE 	= ClapTrap.hpp FragTrap.hpp ScavTrap.hpp
 
 CC			= c++
 CFLAGS 		= -Wall -Wextra -Werror -g3

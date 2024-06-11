@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 10:33:23 by scely             #+#    #+#             */
-/*   Updated: 2024/06/10 09:45:15 by scely            ###   ########.fr       */
+/*   Created: 2024/06/11 11:49:51 by scely             #+#    #+#             */
+/*   Updated: 2024/06/11 12:03:14 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef MAIN_HPP
+#define MAIN_HPP
 
-#include "main.h"
+#include <string>
+#include <iostream>
 
-const int Fixed::nb_bits = 8;
+const std::string RESET = "\033[0m";
+const std::string RED = "\033[1;31m";
+const std::string GREEN = "\033[1;32m";
 
-int main( void )
-{
-	int i = 0;
+#include "Brain.hpp"
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
-	Point a(0,0);
-	Point b(0,8);
-	Point c(6,0);
-	Point p(1.09,3.08);
-
-	i = bsp(a, b, c, p);
-	if (i)
-		std::cout << "Le point est dans le triangle" << std::endl;
-	else		
-		std::cout << "Le point n'est pas dans le triangle" << std::endl;
-}
+#endif

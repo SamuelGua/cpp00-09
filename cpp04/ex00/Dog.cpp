@@ -1,54 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.cpp                                          :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 12:06:03 by scely             #+#    #+#             */
-/*   Updated: 2024/06/10 09:20:54 by scely            ###   ########.fr       */
+/*   Created: 2024/06/11 10:39:27 by scely             #+#    #+#             */
+/*   Updated: 2024/06/11 11:32:19 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
-#include "Fixed.hpp"
-
+#include "Dog.hpp"
 
 /**************************************************************************************/
-/*                              Constructor et destructor                             */
+/*                              Constructeur et destructeur                           */
 /**************************************************************************************/
 
-Point::Point() : x(0), y(0)
+Dog::Dog()
 {
+	std::cout << GREEN << "Default constructor Dog is called" << RESET << std::endl;
+	this->type = "Dog";
 }
 
-Point::Point(const Fixed &x, const Fixed &y) : x(x), y(y)
+Dog::Dog(std::string name)
 {
+	std::cout << GREEN << "Constructor Dog is called" << RESET << std::endl;
+	this->type = name;
 }
 
-Point::Point(const float x, const float y) : x(x), y(y)
+Dog::Dog(Dog &copy)
 {
-}	
-
-Point::Point(const Point &copy) : x(copy.x), y(copy.y)
-{
+	std::cout << GREEN << "Copy constructor Dog is called" << RESET << std::endl;
+	*this = copy;
 }
 
-Point::~Point() 
+Dog::~Dog()
 {
+	std::cout << RED << "Destructor Dog is called" << RESET << std::endl;
 }
 
 /**************************************************************************************/
-/*                              Surcharge d'operateur                                 */
+/*                              Surcharge d'operator                                  */
 /**************************************************************************************/
 
-Point& Point::operator=(const Point& copy)
+Dog& Dog::operator=(const Dog& copy)
 {
-	if (this != &copy)
-	{
-		(Fixed)this->x = copy.x;
-		(Fixed)this->y = copy.y;
-	}
+	this->type = copy.type;
 	return (*this);
 }
 
@@ -56,12 +53,7 @@ Point& Point::operator=(const Point& copy)
 /*                                      Methodes                                      */
 /**************************************************************************************/
 
-float Point::getXValue()
+void Dog::makeSound() const 
 {
-	return(this->x.toFloat());
-}
-
-float Point::getYValue()
-{
-	return(this->y.toFloat());
+	std::cout << this->type << " make a sound: Wooouuuuuuuuuuuf..." <<std::endl;
 }

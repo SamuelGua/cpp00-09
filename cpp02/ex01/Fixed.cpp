@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 14:32:47 by scely             #+#    #+#             */
-/*   Updated: 2024/06/07 13:42:57 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/10 10:13:46 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Fixed::~Fixed()
 Fixed::Fixed(const float number)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->number = static_cast<int>(round(number * (1 << nb_bits)));
+	this->number = static_cast<int>(roundf(number * (1 << nb_bits)));
 }
 
 Fixed::Fixed(const int number)

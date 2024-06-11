@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 19:18:29 by scely             #+#    #+#             */
-/*   Updated: 2024/06/10 15:08:19 by scely            ###   ########.fr       */
+/*   Created: 2024/06/10 15:58:18 by scely             #+#    #+#             */
+/*   Updated: 2024/06/11 11:26:55 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-#include "ClapTrap.hpp"
+#include <string>
+#include <iostream>
 
-class ScavTrap : virtual public ClapTrap
+const std::string RESET = "\033[0m";
+const std::string RED = "\033[1;31m";
+const std::string GREEN = "\033[1;32m";
+
+class Animal
 {
 	protected:
-		ScavTrap();
-
+		std::string type;
 	public:
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap &copy);
-		ScavTrap &operator=(const ScavTrap &copy);
-		~ScavTrap();
-		void guardGate();
-		int getEnergy();
+		Animal();
+		Animal(std::string type);
+		// ~Animal();
+		virtual ~Animal();
+		Animal(const Animal& copy);
+		Animal& operator=(const Animal& copy);
+		std::string getType() const ;
+		virtual void makeSound() const ;
 };
-
 
 #endif

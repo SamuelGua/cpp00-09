@@ -1,54 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.cpp                                          :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 12:06:03 by scely             #+#    #+#             */
-/*   Updated: 2024/06/10 09:20:54 by scely            ###   ########.fr       */
+/*   Created: 2024/06/11 10:39:27 by scely             #+#    #+#             */
+/*   Updated: 2024/06/11 11:21:50 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
-#include "Fixed.hpp"
-
+#include "main.hpp"
 
 /**************************************************************************************/
-/*                              Constructor et destructor                             */
+/*                              Constructeur et destructeur                           */
 /**************************************************************************************/
 
-Point::Point() : x(0), y(0)
+WrongCat::WrongCat()
 {
+	std::cout << GREEN << "Constructor WrongCat is called" << RESET << std::endl;
+	this->type = "WrongCat";
 }
 
-Point::Point(const Fixed &x, const Fixed &y) : x(x), y(y)
+WrongCat::WrongCat(std::string name)
 {
+	std::cout << GREEN << "Default constructor WrongCat is called" << RESET << std::endl;
+	this->type = name;
 }
 
-Point::Point(const float x, const float y) : x(x), y(y)
+WrongCat::WrongCat(WrongCat &copy)
 {
-}	
-
-Point::Point(const Point &copy) : x(copy.x), y(copy.y)
-{
+	std::cout << GREEN << "Copy constructor WrongCat is called" << RESET << std::endl;
+	*this = copy;
 }
 
-Point::~Point() 
+WrongCat::~WrongCat()
 {
+	std::cout << RED << "Destructor WrongCat is called" << RESET << std::endl;
 }
 
 /**************************************************************************************/
-/*                              Surcharge d'operateur                                 */
+/*                              Surcharge d'operator                                  */
 /**************************************************************************************/
 
-Point& Point::operator=(const Point& copy)
+WrongCat& WrongCat::operator=(const WrongCat& copy)
 {
-	if (this != &copy)
-	{
-		(Fixed)this->x = copy.x;
-		(Fixed)this->y = copy.y;
-	}
+	this->type = copy.type;
 	return (*this);
 }
 
@@ -56,12 +53,7 @@ Point& Point::operator=(const Point& copy)
 /*                                      Methodes                                      */
 /**************************************************************************************/
 
-float Point::getXValue()
+void WrongCat::makeSound() const
 {
-	return(this->x.toFloat());
-}
-
-float Point::getYValue()
-{
-	return(this->y.toFloat());
+	std::cout << this->type << " make a sound: Miaouuuuuuuuuuuu..." << std::endl;
 }

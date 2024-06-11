@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:08:41 by scely             #+#    #+#             */
-/*   Updated: 2024/06/07 05:34:02 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/10 14:21:00 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,6 @@ void ScavTrap::attack(const std::string &target)
 		std::cout << ", he left " << this->energy_points << " energy points" << std::endl;
 	}
 	else
-		std::cout << this->name << "No more energy to do a action" << std::endl;
+		std::cout << this->name << " no more energy to do a action" << std::endl;
 	return ;
 }

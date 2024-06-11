@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:55:27 by scely             #+#    #+#             */
-/*   Updated: 2024/06/07 05:41:22 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/10 15:26:13 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,16 @@ void ClapTrap::beRepaired(unsigned int amount)
 	else
 		std::cout << this->name << " has no more energy to do a action" << std::endl;
 	return ;
+}
+
+void ClapTrap::getClapName()
+{
+	std::cout << this->name;
+}
+
+void ClapTrap::showStatus()
+{
+	std::cout << "Health: " << this->hit_points << std::endl;
+	std::cout << "Attack: " << this->attack_damage << std::endl;
+	std::cout << "Energy: " << this->energy_points << std::endl;
 }

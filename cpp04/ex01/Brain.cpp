@@ -1,54 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.cpp                                          :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 12:06:03 by scely             #+#    #+#             */
-/*   Updated: 2024/06/10 09:20:54 by scely            ###   ########.fr       */
+/*   Created: 2024/06/11 13:26:16 by scely             #+#    #+#             */
+/*   Updated: 2024/06/11 13:41:43 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
-#include "Fixed.hpp"
-
+#include "main.hpp"
 
 /**************************************************************************************/
-/*                              Constructor et destructor                             */
+/*                              Constructeur et destructeur                           */
 /**************************************************************************************/
 
-Point::Point() : x(0), y(0)
+Brain::Brain()
 {
+	std::cout << GREEN << "Default constructor Brain is called" << RESET << std::endl;
+	for(int i = 0; i < 100; i++)
+		this->ideas[i] = "";
 }
 
-Point::Point(const Fixed &x, const Fixed &y) : x(x), y(y)
+Brain::Brain(Brain& copy)
 {
+	std::cout << GREEN << "Copy constructor Brain is called" << RESET << std::endl;
+	*this = copy;
 }
 
-Point::Point(const float x, const float y) : x(x), y(y)
+Brain::Brain(std::string str)
 {
-}	
-
-Point::Point(const Point &copy) : x(copy.x), y(copy.y)
-{
+	std::cout << GREEN << "Constructor Brain is called" << RESET << std::endl;
+	for(int i = 0; i < 100; i++)
+		this->ideas[i] = str;
 }
 
-Point::~Point() 
+Brain::~Brain()
 {
+	std::cout << RED << "Destructor Brain is called" << RESET << std::endl;
 }
 
 /**************************************************************************************/
-/*                              Surcharge d'operateur                                 */
+/*                              Surcharge d'operator                                  */
 /**************************************************************************************/
 
-Point& Point::operator=(const Point& copy)
+Brain& Brain::operator=(const Brain& copy)
 {
-	if (this != &copy)
-	{
-		(Fixed)this->x = copy.x;
-		(Fixed)this->y = copy.y;
-	}
+	for(int i = 0; i < 100; i++)
+		this->ideas[i] = copy.ideas[i];
 	return (*this);
 }
 
@@ -56,12 +56,8 @@ Point& Point::operator=(const Point& copy)
 /*                                      Methodes                                      */
 /**************************************************************************************/
 
-float Point::getXValue()
+void Brain::getIdeas()
 {
-	return(this->x.toFloat());
-}
-
-float Point::getYValue()
-{
-	return(this->y.toFloat());
+	for(int i = 0; i < 100; i++)
+		std::cout << ideas[i] << std::endl;
 }

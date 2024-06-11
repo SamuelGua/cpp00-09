@@ -6,10 +6,9 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:16:54 by scely             #+#    #+#             */
-/*   Updated: 2024/06/07 05:34:27 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/10 15:21:05 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "FragTrap.hpp"
 
@@ -20,9 +19,8 @@
 FragTrap::FragTrap()
 {
 	std::cout << GREEN << "Default Constructor FragTrap is called" << RESET << std::endl;
-	this->name = "FragTrap";
+	this->name = ClapTrap::name;
 	this->attack_damage = 30;
-	this->energy_points = 100;
 	this->hit_points = 100;
 }
 
@@ -30,8 +28,8 @@ FragTrap::FragTrap(std::string name)
 {
 	std::cout << GREEN << "Constructor FragTrap is called" << RESET << std::endl; 
 	this->name = name;
-	this->attack_damage = 30;
 	this->energy_points = 100;
+ 	this->attack_damage = 30;
 	this->hit_points = 100;
 }
 
@@ -70,9 +68,7 @@ FragTrap& FragTrap::operator=(const FragTrap &copy)
 
 void FragTrap::highFivesGuys()
 {
-	if (!hit_points)
-		std::cout << this->name << " he is dead" << std::endl;
-	else if (energy_points)
+	if (hit_points)
 		std::cout << this->name << " 😁 positive high fives 🙌" << std::endl;
 	else
 		std::cout << this->name << " has no more energy to do a action" << std::endl;

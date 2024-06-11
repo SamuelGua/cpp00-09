@@ -1,54 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.cpp                                          :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 12:06:03 by scely             #+#    #+#             */
-/*   Updated: 2024/06/10 09:20:54 by scely            ###   ########.fr       */
+/*   Created: 2024/06/10 15:57:47 by scely             #+#    #+#             */
+/*   Updated: 2024/06/11 11:26:43 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
-#include "Fixed.hpp"
-
+#include "WrongAnimal.hpp"
 
 /**************************************************************************************/
-/*                              Constructor et destructor                             */
+/*                              Constructeur et destructeur                           */
 /**************************************************************************************/
 
-Point::Point() : x(0), y(0)
+WrongAnimal::WrongAnimal(std::string type)
 {
+	std::cout << GREEN << "Constructor WrongAnimal is called" << RESET << std::endl;
+	this->type = type;
 }
 
-Point::Point(const Fixed &x, const Fixed &y) : x(x), y(y)
+WrongAnimal::WrongAnimal()
 {
+	std::cout << GREEN << "Default constructor WrongAnimal is called" << RESET << std::endl;
+	this->type = "WrongAnimal";
 }
 
-Point::Point(const float x, const float y) : x(x), y(y)
+WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
-}	
-
-Point::Point(const Point &copy) : x(copy.x), y(copy.y)
-{
+	std::cout << GREEN << "Copy constructor WrongAnimal is called" << RESET << std::endl;
+	*this = copy;
 }
 
-Point::~Point() 
+WrongAnimal::~WrongAnimal()
 {
+	std::cout << RED <<"Destructor WrongAnimal is called" << RESET << std::endl;
 }
 
 /**************************************************************************************/
-/*                              Surcharge d'operateur                                 */
+/*                              Surcharge d'operator                                  */
 /**************************************************************************************/
 
-Point& Point::operator=(const Point& copy)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& copy)
 {
 	if (this != &copy)
-	{
-		(Fixed)this->x = copy.x;
-		(Fixed)this->y = copy.y;
-	}
+		this->type = copy.type;
 	return (*this);
 }
 
@@ -56,12 +54,12 @@ Point& Point::operator=(const Point& copy)
 /*                                      Methodes                                      */
 /**************************************************************************************/
 
-float Point::getXValue()
+void WrongAnimal::makeSound() const 
 {
-	return(this->x.toFloat());
+	std::cout << this->type << " make a sound: webwufbqfefqofq" <<std::endl;
 }
 
-float Point::getYValue()
+std::string WrongAnimal::getType() const 
 {
-	return(this->y.toFloat());
+	return (this->type);
 }
