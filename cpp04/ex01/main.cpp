@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 10:46:03 by scely             #+#    #+#             */
-/*   Updated: 2024/06/11 13:39:31 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/12 11:04:39 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main()
 {
 	{
 		std::cout << "==================================" << std::endl;
-		Cat samuel;
+		Cat samuel("samuel");
 		std::cout << samuel.getType() << std::endl;
 		samuel.makeIdeas();
 	

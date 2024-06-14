@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 13:26:16 by scely             #+#    #+#             */
-/*   Updated: 2024/06/11 13:41:43 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/12 11:02:45 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ Brain::Brain()
 {
 	std::cout << GREEN << "Default constructor Brain is called" << RESET << std::endl;
 	for(int i = 0; i < 100; i++)
-		this->ideas[i] = "";
+		this->ideas[i] = "HELLO";
+	std::cout << this->ideas[1] << std::endl;
 }
 
 Brain::Brain(Brain& copy)

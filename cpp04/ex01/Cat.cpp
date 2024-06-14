@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 10:39:27 by scely             #+#    #+#             */
-/*   Updated: 2024/06/11 13:39:14 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/12 11:11:00 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,15 @@
 Cat::Cat()
 {
 	this->ideas = NULL;
-	std::cout << GREEN << "Constructor Cat is called" << RESET << std::endl;
+	std::cout << GREEN << "Default constructor Cat is called" << RESET << std::endl;
+	this->ideas = new Brain;
 	this->type = "Cat";
 }
 
 Cat::Cat(std::string name)
 {
-	this->ideas = new Brain("Un chat");
-	std::cout << GREEN << "Default constructor Cat is called" << RESET << std::endl;
+	std::cout << GREEN << "Constructor Cat is called" << RESET << std::endl;
+	this->ideas = new Brain("SALUT");
 	this->type = name;
 }
 
@@ -39,6 +40,7 @@ Cat::Cat(Cat &copy)
 Cat::~Cat()
 {
 	std::cout << RED << "Destructor Cat is called" << RESET << std::endl;
+	delete this->ideas;
 }
 
 /**************************************************************************************/
@@ -58,7 +60,6 @@ Cat& Cat::operator=(const Cat& copy)
 void Cat::makeSound() const
 {
 	std::cout << this->type << " make a sound: Miaouuuuuuuuuuuu..." << std::endl;
-	delete this->ideas;
 }
 
 void Cat::makeIdeas()
