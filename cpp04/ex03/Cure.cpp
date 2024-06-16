@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 10:39:27 by scely             #+#    #+#             */
-/*   Updated: 2024/06/14 15:33:51 by scely            ###   ########.fr       */
+/*   Created: 2024/06/16 10:31:47 by scely             #+#    #+#             */
+/*   Updated: 2024/06/16 11:52:38 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,45 +16,36 @@
 /*                              Constructeur et destructeur                           */
 /**************************************************************************************/
 
-Cat::Cat()
+Cure::Cure()
 {
-	std::cout << GREEN << "Default constructor Cat is called" << RESET << std::endl;
-	this->ideas = new Brain;
-	this->type = "Cat";
+	std::cout << GREEN << "Default constructor Cure is called" << RESET << std::endl;
+	this->type = "Cure";
 }
-
-Cat::Cat(std::string name)
+Cure::Cure(std::string name)
 {
-	std::cout << GREEN << "Constructor Cat is called" << RESET << std::endl;
-	this->ideas = new Brain("I'm a cat, king of human");
+	std::cout << GREEN << "Constructor Cure is called" << RESET << std::endl;
 	this->type = name;
 }
 
-Cat::Cat(Cat &copy) : Animal()
+Cure::Cure(const Cure& copy) : AMateria()
 {
-	std::cout << GREEN << "Copy constructor Cat is called" << RESET << std::endl;
+	std::cout << GREEN << "Copy constructor Cure is called" << RESET << std::endl;
 	this->type = copy.type;
-	this->ideas = new Brain(*copy.ideas);
 }
 
-Cat::~Cat()
+Cure::~Cure()
 {
-	std::cout << RED << "Destructor Cat is called" << RESET << std::endl;
-	delete this->ideas;
+	std::cout << GREEN << "Destructor Cure is called" << RESET << std::endl;
 }
 
 /**************************************************************************************/
 /*                              Surcharge d'operator                                  */
 /**************************************************************************************/
 
-Cat& Cat::operator=(const Cat& copy)
+Cure& Cure::operator=(const Cure& copy)
 {
 	if (this == &copy)
-        return (*this);
-	this->type = copy.type;
-	if (this->ideas)
-		delete this->ideas;
-	this->ideas = new Brain(*copy.ideas);
+		*this = copy;
 	return (*this);
 }
 
@@ -62,12 +53,13 @@ Cat& Cat::operator=(const Cat& copy)
 /*                                      Methodes                                      */
 /**************************************************************************************/
 
-void Cat::makeSound() const
+void Cure::use(ICharacter& target)
 {
-	std::cout << this->type << " make a sound: Miaouuuuuuuuuuuu..." << std::endl;
+	std::cout << "* heals " << target.getName() << " ’s wounds *" << std::endl;
 }
 
-void Cat::makeIdeas()
+AMateria* Cure::clone() const
 {
-	this->ideas->getIdeas();
+	std::cout << "This materia Cure is cloned" << std::endl;
+	return new Cure(*this);
 }

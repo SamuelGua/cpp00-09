@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 10:39:27 by scely             #+#    #+#             */
-/*   Updated: 2024/06/14 15:33:51 by scely            ###   ########.fr       */
+/*   Created: 2024/06/10 15:57:47 by scely             #+#    #+#             */
+/*   Updated: 2024/06/11 11:26:43 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,45 +16,37 @@
 /*                              Constructeur et destructeur                           */
 /**************************************************************************************/
 
-Cat::Cat()
+WrongAnimal::WrongAnimal(std::string type)
 {
-	std::cout << GREEN << "Default constructor Cat is called" << RESET << std::endl;
-	this->ideas = new Brain;
-	this->type = "Cat";
+	std::cout << GREEN << "Constructor WrongAnimal is called" << RESET << std::endl;
+	this->type = type;
 }
 
-Cat::Cat(std::string name)
+WrongAnimal::WrongAnimal()
 {
-	std::cout << GREEN << "Constructor Cat is called" << RESET << std::endl;
-	this->ideas = new Brain("I'm a cat, king of human");
-	this->type = name;
+	std::cout << GREEN << "Default constructor WrongAnimal is called" << RESET << std::endl;
+	this->type = "WrongAnimal";
 }
 
-Cat::Cat(Cat &copy) : Animal()
+WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
-	std::cout << GREEN << "Copy constructor Cat is called" << RESET << std::endl;
-	this->type = copy.type;
-	this->ideas = new Brain(*copy.ideas);
+	std::cout << GREEN << "Copy constructor WrongAnimal is called" << RESET << std::endl;
+	*this = copy;
 }
 
-Cat::~Cat()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << RED << "Destructor Cat is called" << RESET << std::endl;
-	delete this->ideas;
+	std::cout << RED <<"Destructor WrongAnimal is called" << RESET << std::endl;
 }
 
 /**************************************************************************************/
 /*                              Surcharge d'operator                                  */
 /**************************************************************************************/
 
-Cat& Cat::operator=(const Cat& copy)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& copy)
 {
-	if (this == &copy)
-        return (*this);
-	this->type = copy.type;
-	if (this->ideas)
-		delete this->ideas;
-	this->ideas = new Brain(*copy.ideas);
+	if (this != &copy)
+		this->type = copy.type;
 	return (*this);
 }
 
@@ -62,12 +54,12 @@ Cat& Cat::operator=(const Cat& copy)
 /*                                      Methodes                                      */
 /**************************************************************************************/
 
-void Cat::makeSound() const
+void WrongAnimal::makeSound() const 
 {
-	std::cout << this->type << " make a sound: Miaouuuuuuuuuuuu..." << std::endl;
+	std::cout << this->type << " make a sound: webwufbqfefqofq" <<std::endl;
 }
 
-void Cat::makeIdeas()
+std::string WrongAnimal::getType() const 
 {
-	this->ideas->getIdeas();
+	return (this->type);
 }

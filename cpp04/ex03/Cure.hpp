@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 10:31:16 by scely             #+#    #+#             */
-/*   Updated: 2024/06/14 15:32:36 by scely            ###   ########.fr       */
+/*   Created: 2024/06/14 16:10:56 by scely             #+#    #+#             */
+/*   Updated: 2024/06/16 11:40:10 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
 #include "main.hpp"
 
-class Dog : public Animal
+class Cure : public AMateria
 {
 	private:
-		Brain *ideas;
+	
 	public:
-		Dog();
-		Dog(std::string name);
-		Dog(Dog &copy);
-		Dog& operator=(const Dog& copy);
-		~Dog();
-		void makeSound() const;
-		void makeIdeas();
+		Cure();
+		Cure(std::string name);
+		Cure(const Cure& copy);
+		~Cure();
+		Cure& operator=(const Cure& copy);
+
+		AMateria* clone() const;
+		void use(ICharacter& target);
 };
 
 #endif

@@ -1,60 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 10:39:27 by scely             #+#    #+#             */
-/*   Updated: 2024/06/14 15:33:51 by scely            ###   ########.fr       */
+/*   Created: 2024/06/14 16:02:40 by scely             #+#    #+#             */
+/*   Updated: 2024/06/16 11:48:08 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
+#include "ICharacter.hpp"
 
 /**************************************************************************************/
 /*                              Constructeur et destructeur                           */
 /**************************************************************************************/
 
-Cat::Cat()
+AMateria::AMateria()
 {
-	std::cout << GREEN << "Default constructor Cat is called" << RESET << std::endl;
-	this->ideas = new Brain;
-	this->type = "Cat";
+	std::cout << GREEN << "Default constructor AMateria is called" << RESET << std::endl;
+	this->type = "AMateria";
 }
 
-Cat::Cat(std::string name)
+AMateria::AMateria(std::string const & type)
 {
-	std::cout << GREEN << "Constructor Cat is called" << RESET << std::endl;
-	this->ideas = new Brain("I'm a cat, king of human");
-	this->type = name;
+	std::cout << GREEN << "Constructor AMateria is called" << RESET << std::endl;
+	this->type = type;
 }
 
-Cat::Cat(Cat &copy) : Animal()
+AMateria::AMateria(AMateria &copy)
 {
-	std::cout << GREEN << "Copy constructor Cat is called" << RESET << std::endl;
-	this->type = copy.type;
-	this->ideas = new Brain(*copy.ideas);
+	std::cout << GREEN << "Copy constructor AMateria is called" << RESET << std::endl;
+	*this = copy;
 }
 
-Cat::~Cat()
+AMateria::~AMateria()
 {
-	std::cout << RED << "Destructor Cat is called" << RESET << std::endl;
-	delete this->ideas;
+	std::cout << GREEN << "Destructor AMateria is called" << RESET << std::endl;
 }
 
 /**************************************************************************************/
 /*                              Surcharge d'operator                                  */
 /**************************************************************************************/
 
-Cat& Cat::operator=(const Cat& copy)
+AMateria& AMateria::operator=(const AMateria &obj)
 {
-	if (this == &copy)
-        return (*this);
-	this->type = copy.type;
-	if (this->ideas)
-		delete this->ideas;
-	this->ideas = new Brain(*copy.ideas);
+	if (this == &obj)
+		return (*this);
+	this->type = obj.type;
 	return (*this);
 }
 
@@ -62,12 +56,13 @@ Cat& Cat::operator=(const Cat& copy)
 /*                                      Methodes                                      */
 /**************************************************************************************/
 
-void Cat::makeSound() const
+std::string const & AMateria::getType() const 
 {
-	std::cout << this->type << " make a sound: Miaouuuuuuuuuuuu..." << std::endl;
+	return (this->type);
 }
 
-void Cat::makeIdeas()
+
+void AMateria::use(ICharacter& target)
 {
-	this->ideas->getIdeas();
+	std::cout << "* On " << target.getName() << " a none materia is used *" << std::endl;
 }

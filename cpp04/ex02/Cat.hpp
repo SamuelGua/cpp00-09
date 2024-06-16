@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 10:31:16 by scely             #+#    #+#             */
-/*   Updated: 2024/06/14 15:32:36 by scely            ###   ########.fr       */
+/*   Updated: 2024/06/11 13:38:59 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef Cat_HPP
+# define Cat_HPP
 
 #include "main.hpp"
 
-class Dog : public Animal
+class Cat : public Animal
 {
 	private:
 		Brain *ideas;
 	public:
-		Dog();
-		Dog(std::string name);
-		Dog(Dog &copy);
-		Dog& operator=(const Dog& copy);
-		~Dog();
+		Cat();
+		Cat(std::string name);
+		Cat(Cat &copy);
+		Cat& operator=(const Cat& copy);
+		~Cat();
 		void makeSound() const;
 		void makeIdeas();
 };

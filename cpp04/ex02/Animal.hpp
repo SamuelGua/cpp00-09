@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 10:31:16 by scely             #+#    #+#             */
-/*   Updated: 2024/06/14 15:32:36 by scely            ###   ########.fr       */
+/*   Created: 2024/06/10 15:58:18 by scely             #+#    #+#             */
+/*   Updated: 2024/06/14 15:39:23 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 #include "main.hpp"
 
-class Dog : public Animal
+class Animal
 {
-	private:
-		Brain *ideas;
+	protected:
+		std::string type;
 	public:
-		Dog();
-		Dog(std::string name);
-		Dog(Dog &copy);
-		Dog& operator=(const Dog& copy);
-		~Dog();
-		void makeSound() const;
-		void makeIdeas();
+		Animal();
+		Animal(std::string type);
+		virtual ~Animal();
+		Animal(const Animal& copy);
+		Animal& operator=(const Animal& copy);
+		std::string getType() const ;
+		virtual void makeSound() const = 0;
 };
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 10:39:27 by scely             #+#    #+#             */
-/*   Updated: 2024/06/14 15:33:51 by scely            ###   ########.fr       */
+/*   Created: 2024/06/16 10:58:12 by scely             #+#    #+#             */
+/*   Updated: 2024/06/16 11:54:26 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,58 +16,64 @@
 /*                              Constructeur et destructeur                           */
 /**************************************************************************************/
 
-Cat::Cat()
+MateriaSource::MateriaSource()
 {
-	std::cout << GREEN << "Default constructor Cat is called" << RESET << std::endl;
-	this->ideas = new Brain;
-	this->type = "Cat";
+	this->name = "MateriaSource";
+	std::cout << GREEN << "Default constructor MateriaSource is called" << RESET << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->materias[i] = NULL;
+}
+MateriaSource::MateriaSource(std::string name)
+{
+	std::cout << GREEN << "Constructor MateriaSource is called" << RESET << std::endl;
+	this->name = name;
+	for (int i = 0; i < 4; i++)
+		this->materias[i] = NULL;
 }
 
-Cat::Cat(std::string name)
+MateriaSource::MateriaSource(const MateriaSource& copy)
 {
-	std::cout << GREEN << "Constructor Cat is called" << RESET << std::endl;
-	this->ideas = new Brain("I'm a cat, king of human");
-	this->type = name;
+	std::cout << GREEN << "Copy constructor MateriaSource is called" << RESET << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->materias[i] = copy.materias[i];
 }
 
-Cat::Cat(Cat &copy) : Animal()
+MateriaSource::~MateriaSource()
 {
-	std::cout << GREEN << "Copy constructor Cat is called" << RESET << std::endl;
-	this->type = copy.type;
-	this->ideas = new Brain(*copy.ideas);
-}
-
-Cat::~Cat()
-{
-	std::cout << RED << "Destructor Cat is called" << RESET << std::endl;
-	delete this->ideas;
+	std::cout << GREEN << "Destructor MateriaSource is called" << RESET << std::endl;
 }
 
 /**************************************************************************************/
 /*                              Surcharge d'operator                                  */
 /**************************************************************************************/
 
-Cat& Cat::operator=(const Cat& copy)
+MateriaSource& MateriaSource::operator=(const MateriaSource& copy)
 {
 	if (this == &copy)
-        return (*this);
-	this->type = copy.type;
-	if (this->ideas)
-		delete this->ideas;
-	this->ideas = new Brain(*copy.ideas);
+		*this = copy;
 	return (*this);
 }
-
 /**************************************************************************************/
 /*                                      Methodes                                      */
 /**************************************************************************************/
 
-void Cat::makeSound() const
+void MateriaSource::learnMateria(AMateria* type)
 {
-	std::cout << this->type << " make a sound: Miaouuuuuuuuuuuu..." << std::endl;
+	int i;
+
+	while (!this->materias[i])
+		i++;
+	if (i > 3)
+	{
+		std::cout << "Bag is full" << std::endl;
+		return ;
+	}
+	this->materias[i] = type;
 }
 
-void Cat::makeIdeas()
+AMateria *MateriaSource::createMateria(std::string const & type)
 {
-	this->ideas->getIdeas();
+	(void)type;
+	std::cout << "createMateria is a incomplete function" << std::endl;
+	return this->materias[0];
 }

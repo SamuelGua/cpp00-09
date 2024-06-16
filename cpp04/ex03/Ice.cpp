@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 10:39:27 by scely             #+#    #+#             */
-/*   Updated: 2024/06/14 15:33:51 by scely            ###   ########.fr       */
+/*   Created: 2024/06/16 10:31:47 by scely             #+#    #+#             */
+/*   Updated: 2024/06/16 11:52:32 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,58 +16,49 @@
 /*                              Constructeur et destructeur                           */
 /**************************************************************************************/
 
-Cat::Cat()
+Ice::Ice()
 {
-	std::cout << GREEN << "Default constructor Cat is called" << RESET << std::endl;
-	this->ideas = new Brain;
-	this->type = "Cat";
+	std::cout << GREEN << "Default constructor Ice is called" << RESET << std::endl;
+	this->type = "Ice";
 }
-
-Cat::Cat(std::string name)
+Ice::Ice(std::string name)
 {
-	std::cout << GREEN << "Constructor Cat is called" << RESET << std::endl;
-	this->ideas = new Brain("I'm a cat, king of human");
+	std::cout << GREEN << "Constructor Ice is called" << RESET << std::endl;
 	this->type = name;
 }
 
-Cat::Cat(Cat &copy) : Animal()
+Ice::Ice(const Ice& copy) : AMateria()
 {
-	std::cout << GREEN << "Copy constructor Cat is called" << RESET << std::endl;
+	std::cout << GREEN << "Copy constructor Ice is called" << RESET << std::endl;
 	this->type = copy.type;
-	this->ideas = new Brain(*copy.ideas);
 }
 
-Cat::~Cat()
+Ice::~Ice()
 {
-	std::cout << RED << "Destructor Cat is called" << RESET << std::endl;
-	delete this->ideas;
+	std::cout << GREEN << "Destructor Ice is called" << RESET << std::endl;
 }
 
 /**************************************************************************************/
 /*                              Surcharge d'operator                                  */
 /**************************************************************************************/
 
-Cat& Cat::operator=(const Cat& copy)
+Ice& Ice::operator=(const Ice& copy)
 {
 	if (this == &copy)
-        return (*this);
-	this->type = copy.type;
-	if (this->ideas)
-		delete this->ideas;
-	this->ideas = new Brain(*copy.ideas);
+		*this = copy;
 	return (*this);
 }
-
 /**************************************************************************************/
 /*                                      Methodes                                      */
 /**************************************************************************************/
 
-void Cat::makeSound() const
+AMateria* Ice::clone() const
 {
-	std::cout << this->type << " make a sound: Miaouuuuuuuuuuuu..." << std::endl;
+	std::cout << "This materia Ice is cloned" << std::endl;
+	return new Ice(*this);
 }
 
-void Cat::makeIdeas()
+void Ice::use(ICharacter& target)
 {
-	this->ideas->getIdeas();
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
