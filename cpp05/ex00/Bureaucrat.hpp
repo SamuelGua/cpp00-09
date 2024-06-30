@@ -6,7 +6,7 @@
 /*   By: marie-evecely <marie-evecely@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 15:52:45 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/06/30 16:22:10 by marie-evece      ###   ########.fr       */
+/*   Updated: 2024/06/30 18:33:51 by marie-evece      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Bureaucrat
 	private:
 		const std::string _name;
 		int _grade;
+		Bureaucrat();
 	public:
 		Bureaucrat(std::string name, int grade);
 		~Bureaucrat();
