@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 17:41:36 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/02 10:42:16 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/02 11:05:11 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,30 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string _name;
 		bool _isSigned;
 		const int _gradeToSign;
 		const int _gradeToExecute;
-		Form();
+		AForm();
 
 	public:
-		Form(std::string name, int gradeTosigned, int gradeToexecute);
-		Form(const Form &copy);
-		~Form();
+		AForm(std::string name, int gradeTosigned, int gradeToexecute);
+		AForm(const AForm &copy);
+		~AForm();
 	
-		Form &operator=(Form const &obj);
+		AForm &operator=(AForm const &obj);
 
 		
-		std::string getName() const;
+		virtual std::string getName() const = 0;
 		bool issigned() const;
 		int gradeToSigned() const;
 		int gradeToExecute() const;
 		void beSigned(Bureaucrat &obj);
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &obj);
+std::ostream &operator<<(std::ostream &out, const AForm &obj);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marie-evecely <marie-evecely@student.42    +#+  +:+       +#+        */
+/*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 16:22:21 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/06/30 17:38:09 by marie-evece      ###   ########.fr       */
+/*   Updated: 2024/07/02 08:54:11 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ int main()
 	}
 	{
 		std::cout << "============ DECREMENT ============" << std::endl;
+		Bureaucrat foo("Foo", 150);
 		try
 		{
-			Bureaucrat foo("Foo", 150);
 			foo.decrement();
 		}
 		catch (const char *e)

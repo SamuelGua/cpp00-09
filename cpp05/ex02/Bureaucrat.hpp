@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 15:52:45 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/02 10:56:37 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/02 11:05:43 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <iostream>
 #include "Form.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -31,7 +31,7 @@ class Bureaucrat
 		int getGrade() const ;
 		void increment();
 		void decrement();
-		void signForm(Form &form);
+		void signForm(AForm &form);
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj);
