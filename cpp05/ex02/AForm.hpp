@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 17:41:36 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/02 11:05:11 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/02 14:32:30 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,21 @@ class AForm
 		bool _isSigned;
 		const int _gradeToSign;
 		const int _gradeToExecute;
-		AForm();
 
 	public:
+		AForm();
 		AForm(std::string name, int gradeTosigned, int gradeToexecute);
 		AForm(const AForm &copy);
-		~AForm();
+		virtual ~AForm();
 	
 		AForm &operator=(AForm const &obj);
 
-		
-		virtual std::string getName() const = 0;
+		std::string getName() const;
 		bool issigned() const;
 		int gradeToSigned() const;
 		int gradeToExecute() const;
 		void beSigned(Bureaucrat &obj);
+		virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream &operator<<(std::ostream &out, const AForm &obj);

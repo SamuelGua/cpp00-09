@@ -32,7 +32,10 @@ AForm::~AForm()
 {
 	// std::cout << "AForm destructor is called" << std::endl;
 }
-
+AForm::AForm() : _name("AForm"), _gradeToSign(75), _gradeToExecute(75)
+{
+	this->_isSigned = false;
+}
 /**************************************************************************************/
 /*                              Surcharge d'operator                                  */
 /**************************************************************************************/

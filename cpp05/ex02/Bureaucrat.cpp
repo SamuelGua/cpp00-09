@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 16:20:13 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/02 10:56:45 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/02 17:59:20 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,23 @@ void Bureaucrat::decrement()
 
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
 	if (form.issigned())
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	else
 		std::cout << this->getName() << " couldn't " << form.getName() << " because he is not qualified." << std::endl;		
+}
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	}
+	catch(const char *error)
+	{
+		std::cerr << error << '\n';
+	}
 }

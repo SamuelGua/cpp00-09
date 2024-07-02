@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 15:52:45 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/02 17:59:24 by scely            ###   ########.fr       */
+/*   Created: 2024/07/02 18:03:04 by scely             #+#    #+#             */
+/*   Updated: 2024/07/02 19:07:11 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef ROBOT_HPP
+#define ROBOT_HPP
 
 #include <string>
 #include <iostream>
 #include "AForm.hpp"
 
-class AForm;
-
-class Bureaucrat
+class RobotomyRequestForm : public AForm
 {
-	private:
-		const std::string _name;
-		int _grade;
-	public:
-		Bureaucrat(std::string name, int grade);
-		~Bureaucrat();
-		std::string getName() const ;
-		int getGrade() const ;
-		void increment();
-		void decrement();
-		void signForm(AForm &form);
-		void executeForm(AForm const & form);
+    private:
+        const std::string target;
+        RobotomyRequestForm();
+    public:
+        RobotomyRequestForm(std::string target);
+        RobotomyRequestForm(RobotomyRequestForm const &copy);
+        ~RobotomyRequestForm();
+        
+        // RobotomyRequestForm &operator=(RobotomyRequestForm const &copy);
+        
+        void execute(Bureaucrat const & executor) const;
 };
-
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj);
 
 #endif

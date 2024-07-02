@@ -8,12 +8,12 @@ MAKEFLAGS += --no-print-directory
 NAME		:= FormBis
 
 
-SRC 		= Bureaucrat.cpp  Form.cpp  main.cpp
+SRC 		= Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
 
 OBJ 		= $(SRC:.cpp=.o)
 
-INCLUDE 	= Bureaucrat.hpp  Form.hpp
-
+INCLUDE 	= Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp
+ 
 CC			= c++
 CFLAGS 		= -Wall -Wextra -Werror -g3
 CFLAGS		+= -Wshadow -Wno-shadow
