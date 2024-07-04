@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marie-evecely <marie-evecely@student.42    +#+  +:+       +#+        */
+/*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:57:37 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/04 19:14:48 by marie-evece      ###   ########.fr       */
+/*   Updated: 2024/07/04 22:03:11 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,23 @@
 /**************************************************************************************/
 
 template<class T>
-Array<T>::Array() : _size(10)
+Array<T>::Array() : _size(10) 
 {
-	if (this->_size == 0)
-	{
-		array = NULL;
-		std::cerr << "Error: cannot allocate with a size of 0, array is NULL" << std::endl;
-	}
-	else 
-	{
-		std::cout << "Array default constructor is called" << std::endl;
-		this->array = new T[this->_size];
-	}
+		// std::cout << "Array default constructor is called" << std::endl;
+		this->array = new T;
 }
 template<class T>
 Array<T>::Array(size_t n) : _size(n)
 {
-	if (this->_size == 0)
+	if (n == 0)
 	{
 		array = NULL;
 		std::cerr << "Error: cannot allocate with a size of 0, array is NULL" << std::endl;
 	}
 	else
 	{
-		std::cout << "Array constructor is called" << std::endl;
-		this->array = new T[this->_size];
+		// std::cout << "Array constructor is called" << std::endl;
+		this->array = new T[n];
 	}
 }
 
@@ -52,7 +44,7 @@ Array<T>::Array(const Array &copy) : _size(copy._size)
 		std::cerr << "Error: cannot allocate with a size of 0, array is NULL" << std::endl;
 	} else 
 	{
-		std::cout << "Array copy constructor is called" << std::endl;
+		// std::cout << "Array copy constructor is called" << std::endl;
 		this->array = new T[copy._size] ;
 		for (int i = 0; i < copy._size; i++)
 			this->array[i] = copy.array[i];
@@ -62,7 +54,7 @@ Array<T>::Array(const Array &copy) : _size(copy._size)
 template<class T>
 Array<T>::~Array()
 {
-	if (this->array)
+	if (this->array != NULL)
 		delete [] this->array; 
 }
 
@@ -84,10 +76,10 @@ Array<T>& Array<T>::operator=(const Array &copy)
 }
 
 template<class T>
-T Array<T>::operator[](int index)
+T& Array<T>::operator[](int index)
 {
-	if (this->_size == 0 || this->_size < index)
-		throw Array::OutOfBounds();
+	if (index < 0 || index >= this->_size)
+		throw Array<T>::OutOfBounds();
 	return (this->array[index]);
 }
 

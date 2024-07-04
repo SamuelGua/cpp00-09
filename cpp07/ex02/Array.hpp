@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marie-evecely <marie-evecely@student.42    +#+  +:+       +#+        */
+/*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:45:39 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/04 19:13:31 by marie-evece      ###   ########.fr       */
+/*   Updated: 2024/07/04 21:55:17 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ class Array
 	
 	public: // operator
 		Array& operator=(const Array &copy);
-		T operator[](int);
+		T& operator[](int);
 	
 	public: // methodes
 		size_t size() const;
 
-	class OutOfBounds : std::exception
+	class OutOfBounds : public std::exception
 	{
-		const char * what() const throw ()
+		const char * what() const throw()
 		{
 			return ("Execption: out of bounds");
 		}
