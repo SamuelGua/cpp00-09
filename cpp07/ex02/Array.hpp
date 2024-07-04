@@ -6,7 +6,7 @@
 /*   By: marie-evecely <marie-evecely@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:45:39 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/04 15:13:42 by marie-evece      ###   ########.fr       */
+/*   Updated: 2024/07/04 19:04:43 by marie-evece      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,35 @@
 #include <string>
 #include <iostream>
 
-template <class T>
+template<class T>
 class Array
 {
 	private:
 		T *array;
-	public:
+		const size_t _size;
+
+	public: // construtor & destructor
 		Array();
 		Array(const Array &copy);
-		Array(unsigned int n);
+		Array(size_t n);
 		~Array();
-
+	
+	public: // operator
 		Array& operator=(const Array &copy);
-		int& operator[](int);
+		T operator[](int);
+	
+	public: // methodes
+		size_t size() const;
+
+	class OutOfBounds : std::exception
+	{
+		const char * what() const throw ()
+		{
+			return ("Execption: out of bounds")
+		}
+	};
 };
-template <class T>
-Array<T>::Array()
-{
-}
 
-template <class T>
-Array<T>::~Array()
-{
-}
-
+#include "Array.tpp"
 
 #endif
