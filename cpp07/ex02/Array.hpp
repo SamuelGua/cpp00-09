@@ -6,7 +6,7 @@
 /*   By: marie-evecely <marie-evecely@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:45:39 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/04 19:04:43 by marie-evece      ###   ########.fr       */
+/*   Updated: 2024/07/04 19:13:31 by marie-evece      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class Array
 	{
 		const char * what() const throw ()
 		{
-			return ("Execption: out of bounds")
+			return ("Execption: out of bounds");
 		}
 	};
 };

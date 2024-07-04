@@ -6,7 +6,7 @@
 /*   By: marie-evecely <marie-evecely@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:57:37 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/04 19:03:31 by marie-evece      ###   ########.fr       */
+/*   Updated: 2024/07/04 19:14:48 by marie-evece      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Array<T>::Array() : _size(10)
 	else 
 	{
 		std::cout << "Array default constructor is called" << std::endl;
-		this->array = new [this->_size] T;
+		this->array = new T[this->_size];
 	}
 }
 template<class T>
@@ -39,7 +39,7 @@ Array<T>::Array(size_t n) : _size(n)
 	else
 	{
 		std::cout << "Array constructor is called" << std::endl;
-		this->array = new[this->_size] T;
+		this->array = new T[this->_size];
 	}
 }
 
@@ -76,8 +76,8 @@ Array<T>& Array<T>::operator=(const Array &copy)
 	if (this != &copy && copy.size > 0)
 	{
 		if (copy.array)
-			delete [] copy.array
-		this->array = new T[copy._size] ;
+			delete [] copy.array;
+		this->array = new T[copy._size];
 		for (int i = 0; i < copy._size; i++)
 			this->array[i] = copy.array[i];
 	}
@@ -86,7 +86,7 @@ Array<T>& Array<T>::operator=(const Array &copy)
 template<class T>
 T Array<T>::operator[](int index)
 {
-	if (this->_size == 0 || this->size < index)
+	if (this->_size == 0 || this->_size < index)
 		throw Array::OutOfBounds();
 	return (this->array[index]);
 }
