@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:59:00 by scely             #+#    #+#             */
-/*   Updated: 2024/07/02 19:08:16 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/04 09:21:20 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,17 @@ class PresidentialPardonForm : public AForm
         PresidentialPardonForm(PresidentialPardonForm const &copy);
         ~PresidentialPardonForm();
 
-        // PresidentialPardonForm &operator=(PresidentialPardonForm const &copy);
+        PresidentialPardonForm &operator=(PresidentialPardonForm const &copy);
 
         void execute(Bureaucrat const & executor) const;
+
+        class GradeTooLowException : public std::exception
+		{
+			const char * what() const throw()
+			{
+				return ("Exception: Grade is too low to ask presidential pardon");
+			}
+		};
 };
 
 #endif

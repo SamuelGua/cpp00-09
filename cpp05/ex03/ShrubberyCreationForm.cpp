@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:55:42 by scely             #+#    #+#             */
-/*   Updated: 2024/07/02 21:23:46 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/04 09:21:36 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         fs << "  *  " << std::endl;
     }
     else 
-		throw "ShrubberyCreationForm::GradeTooLowException";
+		throw ShrubberyCreationForm::GradeTooLowException();
 }
 

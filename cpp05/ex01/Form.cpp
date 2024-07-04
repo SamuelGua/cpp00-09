@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 09:41:16 by scely             #+#    #+#             */
-/*   Updated: 2024/07/02 10:51:27 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/04 09:15:34 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Form &Form::operator=(const Form &obj)
 std::ostream &operator<<(std::ostream &out, const Form &obj)
 {
 	out << obj.getName() << std::endl;
-	out << "Grade to be signe " << obj.gradeToSigned() << " | " << "Grade to be exectue " << obj.gradeToExecute() << std::endl;
+	out << "Grade to be signed " << obj.gradeToSigned() << " | " << "Grade to be execute " << obj.gradeToExecute() << std::endl;
 	out << (obj.issigned() ? "He is signed" : "He is not signed") << std::endl;
     return (out);
 }
@@ -80,5 +80,5 @@ void Form::beSigned(Bureaucrat &obj)
 	if (obj.getGrade() <= _gradeToSign)
 		_isSigned = true;
 	else
-		throw "Form::GradeTooLowException";
+		throw Form::GradeTooLowException();
 }

@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 16:22:21 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/02 08:54:11 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/04 09:05:21 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int main()
 		{
 			Bureaucrat foo("Foo", 0);
 		}
-		catch (const char *e)
+		catch (std::exception& e)
 		{
-			std::cout << e << std::endl;
+			std::cout << e.what() << " ok " << std::endl;
 		}
 	}
 	{
@@ -32,9 +32,9 @@ int main()
 		{
 			Bureaucrat foo("Foo", 151);
 		}
-		catch (const char *e)
+		catch (std::exception& e)
 		{
-			std::cout << e << std::endl;
+			std::cout << e.what() << std::endl;
 		}
 	}
 	std::cout << "============ CHANGEMENT ============" << std::endl;
@@ -45,9 +45,9 @@ int main()
 			Bureaucrat foo("Foo", 1);
 			foo.increment();
 		}
-		catch (const char *e)
+		catch (std::exception& e)
 		{
-			std::cout << e << std::endl;
+			std::cout << e.what() << std::endl;
 		}
 	}
 	{
@@ -57,9 +57,9 @@ int main()
 		{
 			foo.decrement();
 		}
-		catch (const char *e)
+		catch (std::exception& e)
 		{
-			std::cout << e << std::endl;
+			std::cout << e.what() << std::endl;
 		}
 	}
 	std::cout << "============ NORMAL ============" << std::endl;
@@ -72,9 +72,9 @@ int main()
 				foo.decrement();
 			std::cout << foo;
 		}
-		catch (const char *e)
+		catch (std::exception& e)
 		{
-			std::cout << e << std::endl;
+			std::cout << e.what() << std::endl;
 		}
 	}
 	{
@@ -86,9 +86,9 @@ int main()
 				foo.increment();
 			std::cout << foo;
 		}
-		catch (const char *e)
+		catch (std::exception& e)
 		{
-			std::cout << e << std::endl;
+			std::cout << e.what() << std::endl;
 		}
 	}
 

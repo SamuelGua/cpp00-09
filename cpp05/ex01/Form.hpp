@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 17:41:36 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/02 10:42:16 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/04 09:15:57 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,20 @@ class Form
 		~Form();
 	
 		Form &operator=(Form const &obj);
-
 		
 		std::string getName() const;
 		bool issigned() const;
 		int gradeToSigned() const;
 		int gradeToExecute() const;
 		void beSigned(Bureaucrat &obj);
+
+		class GradeTooLowException : public std::exception
+		{
+			const char * what() const throw()
+			{
+				return ("Exception: Grade is too low to be signed");
+			}
+		}; 
 };
 
 std::ostream &operator<<(std::ostream &out, const Form &obj);

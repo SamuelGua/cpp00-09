@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:03:04 by scely             #+#    #+#             */
-/*   Updated: 2024/07/02 18:52:50 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/04 09:20:34 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,14 @@ RobotomyRequestForm::~RobotomyRequestForm()
 /*                              Surcharge d'operator                                  */
 /**************************************************************************************/
 
+RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &copy)
+{
+    if (this != &copy)
+    {
+        static_cast<std::string> (this->target) = copy.target;
+    }
+    return (*this);
+}
 
 /**************************************************************************************/
 /*                                      Methodes                                      */
@@ -47,9 +55,9 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
     {
         std::srand(std::time(0));
         int n = std::rand();
-        std::cout << this->target << "you are";
+        std::cout << this->target << " you are";
         std::cout << ((n % 2) ? " robotomized" : " not robotomized") << std::endl;
     }
     else 
-		throw "RobotomyRequestForm::GradeTooLowException";
+		throw RobotomyRequestForm::GradeTooLowException();
 }

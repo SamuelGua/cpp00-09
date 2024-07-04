@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:59:00 by scely             #+#    #+#             */
-/*   Updated: 2024/07/02 21:22:22 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/04 09:20:24 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
         std::cout << this->target << ": has been pardoned by Zaphod Beeblebrox." << std::endl;
     }
     else 
-		throw "PresidentialPardonForm::GradeTooLowException";
+		throw PresidentialPardonForm::GradeTooLowException();
 }

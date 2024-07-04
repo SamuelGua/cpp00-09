@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 15:52:45 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/02 21:24:42 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/04 09:17:44 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,22 @@ class Bureaucrat
 		void decrement();
 		void signForm(AForm &form);
 		void executeForm(AForm const & form);
+
+		class GradeTooHighException : public std::exception
+		{
+			const char * what() const throw ()
+			{
+				return ("Exception: Grade is too high");
+			}
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			const char * what() const throw ()
+			{
+				return ("Exception: Grade is too low");
+			}
+		};
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj);

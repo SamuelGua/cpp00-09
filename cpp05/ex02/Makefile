@@ -5,14 +5,13 @@ COLOR_YELLOW = \033[93m
 COLOR_BOLD = \033[1m
 MAKEFLAGS += --no-print-directory
 
-NAME		:= FormBis
+NAME		:= A_Form
 
-
-SRC 		= Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
+SRC 		= Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 OBJ 		= $(SRC:.cpp=.o)
 
-INCLUDE 	= Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp
+INCLUDE 	= Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
  
 CC			= c++
 CFLAGS 		= -Wall -Wextra -Werror -g3

@@ -43,7 +43,12 @@ AForm::AForm() : _name("AForm"), _gradeToSign(75), _gradeToExecute(75)
 AForm &AForm::operator=(const AForm &obj)
 {
 	if (this != &obj)
+	{
+		static_cast<std::string> (this->_name) = obj._name;
         _isSigned = obj._isSigned;
+		const_cast<int&>(this->_gradeToSign) = obj._gradeToSign;
+		const_cast<int&>(this->_gradeToExecute) = obj._gradeToExecute;
+	}
 	return (*this);
 }
 
@@ -83,5 +88,6 @@ void AForm::beSigned(Bureaucrat &obj)
 	if (obj.getGrade() <= _gradeToSign)
 		_isSigned = true;
 	else
-		throw "AForm::GradeTooLowException";
+		throw AForm::GradeTooLowException();
+
 }

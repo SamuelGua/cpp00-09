@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:55:42 by scely             #+#    #+#             */
-/*   Updated: 2024/07/02 18:41:53 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/04 09:21:57 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,17 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm(ShrubberyCreationForm const &copy);
         ~ShrubberyCreationForm();
 
-        // ShrubberyCreationForm &operator=(ShrubberyCreationForm const &copy);
+        ShrubberyCreationForm &operator=(ShrubberyCreationForm const &copy);
         
         void execute(Bureaucrat const & executor) const;
+
+        class GradeTooLowException : public std::exception
+		{
+			const char * what() const throw()
+			{
+				return ("Exception: Grade is too low to create a shruberry");
+			}
+		};
 };
 
 
