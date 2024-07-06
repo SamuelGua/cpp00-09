@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:00:28 by scely             #+#    #+#             */
-/*   Updated: 2024/07/03 10:26:27 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/06 09:08:16 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,5 @@ private:
 public:
     static void convert(std::string str); 
 };
-
-ScalarConverter::ScalarConverter()
-{
-}
-
-ScalarConverter::~ScalarConverter()
-{
-}
-void ScalarConverter::convert(std::string str)
-{
-    
-}
 
 #endif

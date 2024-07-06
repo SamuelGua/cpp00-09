@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:57:37 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/04 22:03:11 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/06 08:18:06 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Array<T>::Array(const Array &copy) : _size(copy._size)
 	} else 
 	{
 		// std::cout << "Array copy constructor is called" << std::endl;
-		this->array = new T[copy._size] ;
+		this->array = new T[copy._size];
 		for (int i = 0; i < copy._size; i++)
 			this->array[i] = copy.array[i];
 	}

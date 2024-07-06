@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marie-evecely <marie-evecely@student.42    +#+  +:+       +#+        */
+/*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:12:09 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/04 14:16:24 by marie-evece      ###   ########.fr       */
+/*   Updated: 2024/07/04 21:27:22 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,13 @@
 template <typename T, typename U>
 void iter(T *x, size_t length, U func)
 {
-	size_t i = 0;
 	if (!x || !length || !func)
 	{
 		std::cerr << "Error: cannot iter. One parameter is null" << std::endl;
 		return ;
 	}
-	while (i < length)
-	{
-		x[i] = func(x[i]);
-		i++;
-	}	
+	for (size_t i = 0; i < length; i++)
+		func(x[i]);
 }
 
 #endif

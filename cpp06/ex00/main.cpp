@@ -5,28 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/04 13:11:01 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/04 21:24:07 by scely            ###   ########.fr       */
+/*   Created: 2024/07/06 08:20:09 by scely             #+#    #+#             */
+/*   Updated: 2024/07/06 09:08:02 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
+#include "ScalarConverter.hpp"
 
-template <typename T>
-T plusOne(T& i)
+int main(int ac, char *av[])
 {
-	i -= 32;
-	return (0);
-}
-
-int main()
-{
-	char s[7] = "samuel";
-	iter(s, 6, plusOne<char>);
-	for (size_t i = 0; i < 6; i++)
-	{
-		std::cout << s[i] << std::endl;
-	}
-	
-	return 0;
+    if (ac != 2)
+    {
+        std::cerr << "Error: Wrongs arguments numbers" << std::endl;
+        return (1);
+    }
+    std::string str = av[1];
+    ScalarConverter::convert(str);
 }
