@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:54 by scely             #+#    #+#             */
-/*   Updated: 2024/07/08 16:46:16 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 23:47:10 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ Base *generate(void)
 void identify(Base *p)
 {
     if (dynamic_cast<A*>(p))
-        std::cout << "The object p -> A" << std::endl;
+        std::cout << "(identify*) The object p -> A" << std::endl;
     else if (dynamic_cast<B*>(p))
-        std::cout << "The object p -> B" << std::endl;
+        std::cout << "(identify*) The object p -> B" << std::endl;
     else if (dynamic_cast<C*>(p))
-        std::cout << "The object p -> C" << std::endl;
+        std::cout << "(identify*) The object p -> C" << std::endl;
     else
         std::cerr << "Error (identify*): casting object P is not a A B C object" << std::endl;    
 }
@@ -60,19 +60,19 @@ void identify(Base &p)
 {
     try {
         (void)dynamic_cast<A&>(p);
-        std::cout << "The object p -> A" << std::endl;
+        std::cout << "(identify&) The object p -> A" << std::endl;
         return;
     } catch (const std::exception& error) {}
     
     try {
         (void)dynamic_cast<B&>(p);
-        std::cout << "The object p -> B" << std::endl;
+        std::cout << "(identify&) The object p -> B" << std::endl;
         return;
     } catch (const std::exception& error) {}
 
     try {
         (void)dynamic_cast<C&>(p);
-        std::cout << "The object p -> C" << std::endl;
+        std::cout << "(identify&) The object p -> C" << std::endl;
         return;
     } catch (const std::exception& error) {}
     std::cerr << "Error (identify&): casting object P is not a A B C object" << std::endl;
