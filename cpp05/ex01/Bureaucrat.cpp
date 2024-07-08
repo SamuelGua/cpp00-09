@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 16:20:13 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/04 09:12:06 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 11:02:33 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,5 @@ void Bureaucrat::signForm(Form &form)
 	if (form.issigned())
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	else
-		std::cout << this->getName() << " couldn't " << form.getName() << " because he is not qualified." << std::endl;		
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " because he is not qualified." << std::endl;		
 }

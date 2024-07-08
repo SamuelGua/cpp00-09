@@ -18,34 +18,40 @@
 
 AForm::AForm(std::string name, int gradeTosigned, int gradeToexecute) : _name(name), _gradeToSign(gradeTosigned), _gradeToExecute(gradeToexecute)
 {
-	// std::cout << "AForm constructor is called" << std::endl;
+	if (_gradeToSign < 1 || _gradeToExecute < 1)
+		throw AForm::GradeTooHighException();
+	else if (_gradeToSign > 150 || _gradeToExecute > 150)
+		throw AForm::GradeTooLowException();
     _isSigned = false;
 }
 
 AForm::AForm(const AForm &copy) : _name(copy._name),_isSigned(false), 
 _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute)
 {
-    // std::cout << "Copy constructor is called" << std::endl;
+	if (_gradeToSign < 1 || _gradeToExecute < 1)
+		throw AForm::GradeTooHighException();
+	else if (_gradeToSign > 150 || _gradeToExecute > 150)
+		throw AForm::GradeTooLowException();
 }
 
 AForm::~AForm()
 {
-	// std::cout << "AForm destructor is called" << std::endl;
 }
-AForm::AForm() : _name("AForm"), _gradeToSign(75), _gradeToExecute(75)
-{
-	this->_isSigned = false;
-}
+
 /**************************************************************************************/
 /*                              Surcharge d'operator                                  */
 /**************************************************************************************/
 
 AForm &AForm::operator=(const AForm &obj)
 {
+	if (_gradeToSign < 1 || _gradeToExecute < 1)
+		throw AForm::GradeTooHighException();
+	else if (_gradeToSign > 150 || _gradeToExecute > 150)
+		throw AForm::GradeTooLowException();	
 	if (this != &obj)
 	{
-		static_cast<std::string> (this->_name) = obj._name;
-        _isSigned = obj._isSigned;
+		const_cast<std::string&> (this->_name) = obj._name;
+		_isSigned = obj._isSigned;
 		const_cast<int&>(this->_gradeToSign) = obj._gradeToSign;
 		const_cast<int&>(this->_gradeToExecute) = obj._gradeToExecute;
 	}
@@ -55,7 +61,7 @@ AForm &AForm::operator=(const AForm &obj)
 std::ostream &operator<<(std::ostream &out, const AForm &obj)
 {
 	out << obj.getName() << std::endl;
-	out << "Grade to be signe " << obj.gradeToSigned() << " | " << "Grade to be exectue " << obj.gradeToExecute() << std::endl;
+	out << "Grade to be sign " << obj.gradeToSigned() << " | " << "Grade to be exectue " << obj.gradeToExecute() << std::endl;
 	out << (obj.issigned() ? "He is signed" : "He is not signed") << std::endl;
     return (out);
 }
@@ -88,6 +94,5 @@ void AForm::beSigned(Bureaucrat &obj)
 	if (obj.getGrade() <= _gradeToSign)
 		_isSigned = true;
 	else
-		throw AForm::GradeTooLowException();
-
+		throw AForm::GradeToBeSign();
 }

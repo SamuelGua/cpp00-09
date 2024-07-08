@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:55:42 by scely             #+#    #+#             */
-/*   Updated: 2024/07/04 09:21:36 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 13:43:26 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 {
     if (this != &copy)
     {
-        static_cast<std::string> (this->target) = copy.target;
+        const_cast<std::string& > (this->target) = copy.target;
     }
     return (*this);
 }

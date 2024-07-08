@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:54 by scely             #+#    #+#             */
-/*   Updated: 2024/07/04 09:40:02 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 14:05:07 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,19 @@ void identify(Base *p)
 void identify(Base &p)
 {
     try {
-        dynamic_cast<A&>(p);
+        (void)dynamic_cast<A&>(p);
         std::cout << "The object p -> A" << std::endl;
         return;
     } catch (const std::exception& error) {}
     
     try {
-        dynamic_cast<B&>(p);
+        (void)dynamic_cast<B&>(p);
         std::cout << "The object p -> B" << std::endl;
         return;
     } catch (const std::exception& error) {}
 
     try {
-        dynamic_cast<C&>(p);
+        (void)dynamic_cast<C&>(p);
         std::cout << "The object p -> C" << std::endl;
         return;
     } catch (const std::exception& error) {}

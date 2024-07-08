@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:59:00 by scely             #+#    #+#             */
-/*   Updated: 2024/07/04 09:21:20 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 13:15:01 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ class PresidentialPardonForm : public AForm
 				return ("Exception: Grade is too low to ask presidential pardon");
 			}
 		};
+
 };
 
 #endif

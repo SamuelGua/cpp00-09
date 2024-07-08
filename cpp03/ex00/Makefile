@@ -8,14 +8,14 @@ MAKEFLAGS += --no-print-directory
 NAME		:= ClapTrap
 
 
-SRC 		= ClapTrap.cpp main.cpp 
+SRC			= ClapTrap.cpp main.cpp 
 
-OBJ 		= $(SRC:.cpp=.o)
+OBJ			= $(SRC:.cpp=.o)
 
 INCLUDE 	= ClapTrap.hpp
 
 CC			= c++
-CFLAGS 		= -Wall -Wextra -Werror -g3
+CFLAGS		= -Wall -Wextra -Werror -g3
 CFLAGS		+= -std=c++98
 CCFLAGS		+= -I include
 

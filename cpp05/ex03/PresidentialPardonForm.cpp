@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:59:00 by scely             #+#    #+#             */
-/*   Updated: 2024/07/04 09:20:24 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 13:42:37 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Pres
 {
     std::cout << "PresidentialPardonForm constructor is called" << std::endl;
 }
+
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy) : AForm("PresidentialPardonForm", 25, 5), target(copy.target)
 {
     std::cout << "Shrubbery copy constructor is called" << std::endl;
@@ -38,7 +39,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
 {
     if (this != &copy)
     {
-        static_cast<std::string> (this->target) = copy.target;
+        const_cast<std::string&> (this->target) = copy.target;
     }
     return (*this);
 }

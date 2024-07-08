@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 09:41:16 by scely             #+#    #+#             */
-/*   Updated: 2024/07/04 09:15:34 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 11:12:12 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,24 @@
 
 Form::Form(std::string name, int gradeTosigned, int gradeToexecute) : _name(name), _gradeToSign(gradeTosigned), _gradeToExecute(gradeToexecute)
 {
-	// std::cout << "Form constructor is called" << std::endl;
+	if (_gradeToSign < 1 || _gradeToExecute < 1)
+		throw Form::GradeTooHighException();
+	else if (_gradeToSign > 150 || _gradeToExecute > 150)
+		throw Form::GradeTooLowException();
     _isSigned = false;
 }
 
 Form::Form(const Form &copy) : _name(copy._name),_isSigned(false), 
 _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute)
 {
-    // std::cout << "Copy constructor is called" << std::endl;
+	if (_gradeToSign < 1 || _gradeToExecute < 1)
+		throw Form::GradeTooHighException();
+	else if (_gradeToSign > 150 || _gradeToExecute > 150)
+		throw Form::GradeTooLowException();
 }
 
 Form::~Form()
 {
-	// std::cout << "Form destructor is called" << std::endl;
 }
 
 /**************************************************************************************/
@@ -40,7 +45,12 @@ Form::~Form()
 Form &Form::operator=(const Form &obj)
 {
 	if (this != &obj)
-        _isSigned = obj._isSigned;
+	{
+		_isSigned = obj._isSigned;
+		const_cast<std::string&>(this->_name) = obj.getName();
+		const_cast<int&>(this->_gradeToSign) = obj.gradeToSigned();
+		const_cast<int&>(this->_gradeToSign) = obj.gradeToExecute();
+	}
 	return (*this);
 }
 
@@ -80,5 +90,5 @@ void Form::beSigned(Bureaucrat &obj)
 	if (obj.getGrade() <= _gradeToSign)
 		_isSigned = true;
 	else
-		throw Form::GradeTooLowException();
+		throw Form::GradeToBeSigned();
 }

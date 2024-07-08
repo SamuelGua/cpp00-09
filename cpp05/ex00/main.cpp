@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 16:22:21 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/04 09:05:21 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 10:46:58 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int main()
 {
-	std::cout << "============ INITIALIZATION ============" << std::endl;
+	std::cout << "============ INITIALIZATION =======" << std::endl;
 	{
-		std::cout << "============ TOO HIGH ============" << std::endl;
+		std::cout << "============ TOO HIGH =============" << std::endl;
 		try
 		{
 			Bureaucrat foo("Foo", 0);
@@ -27,7 +27,7 @@ int main()
 		}
 	}
 	{
-		std::cout << "============ TOO LOW ============" << std::endl;
+		std::cout << "============ TOO LOW ==============" << std::endl;
 		try
 		{
 			Bureaucrat foo("Foo", 151);
@@ -37,7 +37,7 @@ int main()
 			std::cout << e.what() << std::endl;
 		}
 	}
-	std::cout << "============ CHANGEMENT ============" << std::endl;
+	std::cout << "============ CHANGEMENT ===========" << std::endl;
 	{
 		std::cout << "============ INCREMENT ============" << std::endl;
 		try
@@ -62,9 +62,9 @@ int main()
 			std::cout << e.what() << std::endl;
 		}
 	}
-	std::cout << "============ NORMAL ============" << std::endl;
+	std::cout << "============ NORMAL ===============" << std::endl;
 	{
-		std::cout << "============ INCREMENT ============" << std::endl;
+		std::cout << "============ DECREMENT ============" << std::endl;
 		try
 		{
 			Bureaucrat foo("Foo", 1);
@@ -78,7 +78,7 @@ int main()
 		}
 	}
 	{
-		std::cout << "============ DECREMENT ============" << std::endl;
+		std::cout << "============ INCREMENT ============" << std::endl;
 		try
 		{
 			Bureaucrat foo("Foo", 150);

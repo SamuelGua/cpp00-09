@@ -15,7 +15,7 @@ OBJ 		= $(SRC:.cpp=.o)
 INCLUDE 	= Bureaucrat.hpp  Form.hpp
 
 CC			= c++
-CFLAGS 		= -Wall -Wextra -Werror -g3
+CFLAGS		= -Wall -Wextra -Werror -g3
 CFLAGS		+= -Wshadow -Wno-shadow
 CFLAGS		+= -std=c++98
 CCFLAGS		+= -I include

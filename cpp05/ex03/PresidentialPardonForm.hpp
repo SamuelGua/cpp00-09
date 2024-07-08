@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:59:00 by scely             #+#    #+#             */
-/*   Updated: 2024/07/04 09:21:20 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 13:42:50 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class PresidentialPardonForm : public AForm
     private:
         const std::string target;
         PresidentialPardonForm();
+
     public:
         PresidentialPardonForm(std::string target);
         PresidentialPardonForm(PresidentialPardonForm const &copy);

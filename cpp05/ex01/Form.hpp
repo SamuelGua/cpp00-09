@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 17:41:36 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/04 09:15:57 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 10:52:53 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,29 @@ class Form
 		int gradeToExecute() const;
 		void beSigned(Bureaucrat &obj);
 
-		class GradeTooLowException : public std::exception
+		class GradeToBeSigned : public std::exception
 		{
 			const char * what() const throw()
 			{
 				return ("Exception: Grade is too low to be signed");
 			}
-		}; 
+		};
+		
+		class GradeTooLowException : public std::exception
+		{
+			const char * what() const throw ()
+			{
+				return ("Exception: Grade Too Low for Form");
+			}
+		};
+
+		class GradeTooHighException : public std::exception
+		{
+			const char * what() const throw ()
+			{
+				return ("Exception: Grade Too High for FORM");
+			}
+		};
 };
 
 std::ostream &operator<<(std::ostream &out, const Form &obj);
