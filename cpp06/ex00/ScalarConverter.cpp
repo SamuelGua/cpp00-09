@@ -6,20 +6,11 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:00:28 by scely             #+#    #+#             */
-/*   Updated: 2024/07/06 10:16:07 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/07 09:10:05 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-
-
-ScalarConverter::ScalarConverter()
-{
-}
-
-ScalarConverter::~ScalarConverter()
-{
-}
 
 int stringError(std::string str)
 {
@@ -43,7 +34,6 @@ int isExeption(std::string str)
         std::cout << "Float:    nanf" << std::endl;
         std::cout << "Double:   nan" << std::endl;
         exit (0);
-
     }
     if (!str.compare("-inf") || !str.compare("+inf")
         || !str.compare("-inff") || !str.compare("+inff"))
@@ -65,7 +55,6 @@ void ScalarConverter::convert(std::string str)
         std::cerr << "Error format" << std::endl;
         return ;
     }
-    // char *endptr;
     double valeur = std::strtod(str.c_str(), NULL);
     std::cout << "Char:   ";
     if (std::isprint(valeur))
