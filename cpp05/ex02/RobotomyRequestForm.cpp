@@ -6,13 +6,14 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:03:04 by scely             #+#    #+#             */
-/*   Updated: 2024/07/08 16:43:25 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 23:21:19 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib>
 #include <ctime>
+#include <unistd.h>
 
 static bool renew = false;
 
@@ -22,16 +23,13 @@ static bool renew = false;
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), target(target)
 {
-    std::cout << "RobotomyRequestForm constructor is called" << std::endl;
 }
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy) : AForm("RobotomyRequestForm", 72, 45), target(copy.target)
 {
-    std::cout << "Shrubbery copy constructor is called" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << "RobotomyRequestForm destructor is called" << std::endl;
 }
 
 /**************************************************************************************/
@@ -50,16 +48,17 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &c
 /**************************************************************************************/
 /*                                      Methodes                                      */
 /**************************************************************************************/
+
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     if (this->issigned() == true && executor.getGrade() <= this->gradeToExecute())
     {   
+
         if (!renew)
         {
-            std::srand(std::time(0));
+            std::srand((std::time(NULL)));
             renew = true;
         }   
-        std::srand(std::time(0));
         int n = std::rand();
         std::cout << this->target << " you are";
         std::cout << ((n % 2) ? " robotomized" : " not robotomized") << std::endl;

@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 22:13:33 by scely             #+#    #+#             */
-/*   Updated: 2024/07/08 13:48:35 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 23:33:24 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,6 @@ AForm *Intern::makeForm(std::string type, std::string target)
         if (!type_str[i].compare(type.c_str()))
             return (fptr[i](target));
     }
-    std::cerr << "Error: none function occurence" << std::endl;
+    std::cerr << "Error: none function find" << std::endl;
     return (NULL);
 }

@@ -51,7 +51,7 @@ AForm &AForm::operator=(const AForm &obj)
 	if (this != &obj)
 	{
 		const_cast<std::string&> (this->_name) = obj._name;
-		_isSigned = obj._isSigned;
+		_isSigned = false;
 		const_cast<int&>(this->_gradeToSign) = obj._gradeToSign;
 		const_cast<int&>(this->_gradeToExecute) = obj._gradeToExecute;
 	}
@@ -94,5 +94,5 @@ void AForm::beSigned(Bureaucrat &obj)
 	if (obj.getGrade() <= _gradeToSign)
 		_isSigned = true;
 	else
-		throw AForm::GradeToBeSign();
+		throw AForm::GradeTooLowException();
 }

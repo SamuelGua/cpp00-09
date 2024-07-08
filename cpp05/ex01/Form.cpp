@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 09:41:16 by scely             #+#    #+#             */
-/*   Updated: 2024/07/08 11:12:12 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 22:49:46 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Form &Form::operator=(const Form &obj)
 {
 	if (this != &obj)
 	{
-		_isSigned = obj._isSigned;
+		_isSigned = false;
 		const_cast<std::string&>(this->_name) = obj.getName();
 		const_cast<int&>(this->_gradeToSign) = obj.gradeToSigned();
 		const_cast<int&>(this->_gradeToSign) = obj.gradeToExecute();
@@ -90,5 +90,5 @@ void Form::beSigned(Bureaucrat &obj)
 	if (obj.getGrade() <= _gradeToSign)
 		_isSigned = true;
 	else
-		throw Form::GradeToBeSigned();
+		throw Form::GradeTooLowException();
 }

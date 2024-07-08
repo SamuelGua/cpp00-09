@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 15:52:45 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/04 09:17:44 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 23:16:33 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 #include <string>
 #include <iostream>
 #include "AForm.hpp"
+
+#define RED "\033[1;31m"
+#define ORANGE "\033[1;33m"
+#define RESET "\033[0m"
 
 class AForm;
 

@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 16:20:13 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/08 13:40:06 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 23:01:13 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
 	if (this != &copy)
 	{
 		this->_grade = copy._grade;
-		static_cast<std::string>(this->_name) = static_cast<std::string>(copy._name);
+		static_cast<std::string>(this->_name) = copy._name;
 	}
 	return (*this);
 }

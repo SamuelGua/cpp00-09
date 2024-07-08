@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:03:04 by scely             #+#    #+#             */
-/*   Updated: 2024/07/08 16:42:40 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 23:36:03 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,13 @@ static bool renew = false;
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), target(target)
 {
-    std::cout << "RobotomyRequestForm constructor is called" << std::endl;
 }
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy) : AForm("RobotomyRequestForm", 72, 45), target(copy.target)
 {
-    std::cout << "Shrubbery copy constructor is called" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << "RobotomyRequestForm destructor is called" << std::endl;
 }
 
 /**************************************************************************************/

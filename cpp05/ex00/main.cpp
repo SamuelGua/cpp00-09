@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 16:22:21 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/08 10:46:58 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 22:33:19 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,32 @@
 
 int main()
 {
-	std::cout << "============ INITIALIZATION =======" << std::endl;
+	std::cout << ORANGE << "============ INITIALIZATION =======" << RESET << std::endl;
 	{
-		std::cout << "============ TOO HIGH =============" << std::endl;
+		std::cout << ORANGE << "============ TOO HIGH =============" << RESET << std::endl;
 		try
 		{
 			Bureaucrat foo("Foo", 0);
 		}
 		catch (std::exception& e)
 		{
-			std::cout << e.what() << " ok " << std::endl;
+			std::cout << RED << e.what() << RESET << std::endl;
 		}
 	}
 	{
-		std::cout << "============ TOO LOW ==============" << std::endl;
+		std::cout << ORANGE << "============ TOO LOW ==============" << RESET << std::endl;
 		try
 		{
 			Bureaucrat foo("Foo", 151);
 		}
 		catch (std::exception& e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cout << RED << e.what() << RESET << std::endl;
 		}
 	}
-	std::cout << "============ CHANGEMENT ===========" << std::endl;
+	std::cout << ORANGE << "============ CHANGEMENT ===========" << RESET << std::endl;
 	{
-		std::cout << "============ INCREMENT ============" << std::endl;
+		std::cout << ORANGE << "============ INCREMENT ============" << RESET << std::endl;
 		try
 		{
 			Bureaucrat foo("Foo", 1);
@@ -47,11 +47,11 @@ int main()
 		}
 		catch (std::exception& e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cout << RED << e.what() << RESET << std::endl;
 		}
 	}
 	{
-		std::cout << "============ DECREMENT ============" << std::endl;
+		std::cout << ORANGE << "============ DECREMENT ============" << RESET << std::endl;
 		Bureaucrat foo("Foo", 150);
 		try
 		{
@@ -59,12 +59,12 @@ int main()
 		}
 		catch (std::exception& e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cout << RED << e.what() << RESET << std::endl;
 		}
 	}
-	std::cout << "============ NORMAL ===============" << std::endl;
+	std::cout << ORANGE << "============ NORMAL ===============" << RESET << std::endl;
 	{
-		std::cout << "============ DECREMENT ============" << std::endl;
+		std::cout << ORANGE << "============ DECREMENT ============" << RESET << std::endl;
 		try
 		{
 			Bureaucrat foo("Foo", 1);
@@ -74,11 +74,11 @@ int main()
 		}
 		catch (std::exception& e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cout << RED << e.what() << RESET << std::endl;
 		}
 	}
 	{
-		std::cout << "============ INCREMENT ============" << std::endl;
+		std::cout << ORANGE << "============ INCREMENT ============" << RESET << std::endl;
 		try
 		{
 			Bureaucrat foo("Foo", 150);
@@ -88,7 +88,7 @@ int main()
 		}
 		catch (std::exception& e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cout << RED << e.what() << RESET << std::endl;
 		}
 	}
 

@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:55:42 by scely             #+#    #+#             */
-/*   Updated: 2024/07/04 09:21:36 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 23:00:29 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,13 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137), target(target)
 {
-    std::cout << "Shrubbery constructor is called" << std::endl;
 }
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy) : AForm("ShrubberyCreationForm", 145, 137), target(copy.target)
 {
-    std::cout << "Shrubbery copy constructor is called" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout << "Shrubbery destructor is called" << std::endl;
 }
 
 
