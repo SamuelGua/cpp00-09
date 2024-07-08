@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:00:28 by scely             #+#    #+#             */
-/*   Updated: 2024/07/07 09:10:05 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 16:56:33 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int isExeption(std::string str)
 {
     if (!str.compare("nan") || !str.compare("nanf"))
     {
-        std::cout << "Char:     Non printable" << std::endl;
-        std::cout << "Int:      0" << std::endl;
+        std::cout << "Char:     impossible" << std::endl;
+        std::cout << "Int:      impossible" << std::endl;
         std::cout << "Float:    nanf" << std::endl;
         std::cout << "Double:   nan" << std::endl;
         exit (0);
@@ -38,8 +38,8 @@ int isExeption(std::string str)
     if (!str.compare("-inf") || !str.compare("+inf")
         || !str.compare("-inff") || !str.compare("+inff"))
     {
-        std::cout << "Char:     Non printable" << std::endl;
-        std::cout << "Int:      0" << std::endl;
+        std::cout << "Char:     impossible" << std::endl;
+        std::cout << "Int:      impossible" << std::endl;
         std::cout << "Float:    " << (!str.compare(0, 1, "-") ? "-inff\n" : "+inff\n");
         std::cout << "Double:   " << (!str.compare(0, 1, "-") ? "-inf\n" : "+inf\n");
         exit (0);

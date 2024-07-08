@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:54 by scely             #+#    #+#             */
-/*   Updated: 2024/07/08 14:05:07 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 16:46:16 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,15 @@
 #include <ctime>
 #include <iostream>
 
+static bool renew = false;
+
 int randomNumber(void)
 {
+    if (!renew)
+    {
+        std::srand(std::time(0));
+        renew = true;
+    }   
     std::srand(std::time(0));
     return ((std::rand() % 3) + 1);
 }

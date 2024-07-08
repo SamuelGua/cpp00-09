@@ -7,14 +7,15 @@ MAKEFLAGS += --no-print-directory
 
 NAME		:= reinterpret_cast
 
+SRC			= main.cpp
 
-SRC 		= Serializer.cpp main.cpp
-OBJ 		= $(SRC:.cpp=.o)
+OBJ			= $(SRC:.cpp=.o)
 
-INCLUDE 	= data.h Serializer.hpp
+INCLUDE		= A.hpp B.hpp C.hpp
 
 CC			= c++
-CFLAGS 		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g3
+CFLAGS		+= -Wshadow -Wno-shadow
 CFLAGS		+= -std=c++98
 CCFLAGS		+= -I include
 
@@ -32,7 +33,8 @@ clean:
 	@$(RM) $(OBJ)
 	@echo "$(COLOR_RED)Object files are deleted 🗑️$(COLOR_RESET)"
 
-fclean: clean
+fclean: 
+	@$(MAKE) clean
 	@$(RM) $(NAME)
 	@echo "$(COLOR_RED)$(COLOR_BOLD)All files are deleted 🗑️$(COLOR_RESET)"
 

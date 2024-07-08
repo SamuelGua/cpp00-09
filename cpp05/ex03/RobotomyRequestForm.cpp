@@ -6,13 +6,16 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:03:04 by scely             #+#    #+#             */
-/*   Updated: 2024/07/08 13:43:05 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 16:42:40 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib>
 #include <ctime>
+#include <unistd.h>
+
+static bool renew = false;
 
 /**************************************************************************************/
 /*                              Constructeur et destructeur                           */
@@ -53,7 +56,11 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     if (this->issigned() == true && executor.getGrade() <= this->gradeToExecute())
     {
-        std::srand(std::time(0));
+        if (!renew)
+        {
+            std::srand(std::time(0));
+            renew = true;
+        }   
         int n = std::rand();
         std::cout << this->target << " you are";
         std::cout << ((n % 2) ? " robotomized" : " not robotomized") << std::endl;

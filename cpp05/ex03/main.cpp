@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 16:22:21 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/08 13:56:07 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/08 16:29:11 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 int main()
 {
 	std::cout << "=========================== ROBOTOMY ===============================" << std::endl;
-	{
+	
 		Intern someRandomIntern;
 		AForm* rrf;
 		Bureaucrat foo("Samuel", 1);
@@ -30,8 +30,10 @@ int main()
 		if (rrf == NULL)
 			return (0);
 		rrf->execute(foo);
-		delete rrf;
-	}
+		rrf->execute(foo);
+		rrf->execute(foo);
+		// delete rrf;
+	
 	std::cout << "=========================== Presidential ===============================" << std::endl;
 	{
 		Intern someRandomIntern;
@@ -56,4 +58,8 @@ int main()
 		rrf->execute(foo);
 		delete rrf;
 	}
+	rrf->execute(foo);
+	rrf->execute(foo);
+	rrf->execute(foo);
+	rrf->execute(foo);
 }
