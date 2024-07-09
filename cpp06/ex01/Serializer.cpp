@@ -1,4 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/09 13:39:01 by scely             #+#    #+#             */
+/*   Updated: 2024/07/09 18:37:15 by scely            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Serializer.hpp"
+
+Serializer::Serializer(const Serializer& copy)
+{
+	(void)copy;
+}
+
+Serializer::~Serializer()
+{
+}
+
+Serializer& Serializer::operator=(const Serializer& copy)
+{
+	(void)copy;
+	return (*this);
+}
 
 uintptr_t Serializer::serialize(Data* ptr)
 {

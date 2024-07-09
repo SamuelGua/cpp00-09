@@ -6,18 +6,19 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:57:37 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/06 08:18:06 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/09 18:52:04 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "Array.hpp"
 
 /**************************************************************************************/
 /*                              Constructeur et destructeur                           */
 /**************************************************************************************/
 
 template<class T>
-Array<T>::Array() : _size(10) 
+Array<T>::Array() : _size(0) 
 {
-		// std::cout << "Array default constructor is called" << std::endl;
 		this->array = new T;
 }
 template<class T>
@@ -30,7 +31,6 @@ Array<T>::Array(size_t n) : _size(n)
 	}
 	else
 	{
-		// std::cout << "Array constructor is called" << std::endl;
 		this->array = new T[n];
 	}
 }
@@ -44,7 +44,6 @@ Array<T>::Array(const Array &copy) : _size(copy._size)
 		std::cerr << "Error: cannot allocate with a size of 0, array is NULL" << std::endl;
 	} else 
 	{
-		// std::cout << "Array copy constructor is called" << std::endl;
 		this->array = new T[copy._size];
 		for (int i = 0; i < copy._size; i++)
 			this->array[i] = copy.array[i];

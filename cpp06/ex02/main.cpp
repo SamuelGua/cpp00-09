@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:54 by scely             #+#    #+#             */
-/*   Updated: 2024/07/08 23:47:10 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/09 18:42:03 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ int randomNumber(void)
     {
         std::srand(std::time(0));
         renew = true;
-    }   
-    std::srand(std::time(0));
+    }
     return ((std::rand() % 3) + 1);
 }
 
@@ -91,5 +90,4 @@ int main()
         identify(a);
         identify(*a);
     }
-    
 }

@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:00:28 by scely             #+#    #+#             */
-/*   Updated: 2024/07/08 17:12:58 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/09 18:26:31 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <string>
 #include <iostream>
-#include <cstdlib> 
+#include <stdlib.h> 
+#include <limits.h> 
 
 class ScalarConverter
 {
@@ -26,9 +27,6 @@ class ScalarConverter
         static void convert(std::string str); 
 };
 
-ScalarConverter::~ScalarConverter()
-{ 
-}
 
 
 #endif

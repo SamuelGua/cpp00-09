@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:11:01 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/08 14:10:21 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/09 18:47:14 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
 	iter(s, 6, plusOne<char>);
 	for (size_t i = 0; i < 6; i++)
 	{
-		std::cout << s[i] << std::endl;
+		std::cout << s[i];
 	}
 	
 	return 0;
