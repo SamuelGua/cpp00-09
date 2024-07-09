@@ -6,13 +6,13 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:11:01 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/09 18:47:14 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/09 23:01:36 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 
-template <typename T>
+template< typename T>
 T plusOne(T& i)
 {
 	i -= 32;

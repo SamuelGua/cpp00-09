@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:12:09 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/09 18:47:07 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/09 22:59:43 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void iter(T *x, size_t length, U func)
 	for (size_t i = 0; i < length; i++)
 		func(x[i]);
 }
+
 
 #endif
