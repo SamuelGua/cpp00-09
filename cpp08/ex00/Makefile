@@ -5,13 +5,13 @@ COLOR_YELLOW = \033[93m
 COLOR_BOLD = \033[1m
 MAKEFLAGS += --no-print-directory
 
-NAME		:= array
+NAME		:= easyfind
 
 SRC			= main.cpp
 
 OBJ			= $(SRC:.cpp=.o)
 
-INCLUDE		= Array.hpp Array.tpp
+INCLUDE		= easyfind.hpp
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -g3

@@ -1,32 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   easyfind.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/04 13:11:01 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/10 12:58:47 by scely            ###   ########.fr       */
+/*   Created: 2024/07/11 11:47:33 by scely             #+#    #+#             */
+/*   Updated: 2024/07/11 11:47:35 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
-
-template< typename T>
-T plusOne(T& i)
-{
-	i -= 32;
-	return (0);
-}
-
-int main()
-{
-	char s[7] = "samuel";
-	iter(s, 6, plusOne<char>);
-	for (size_t i = 0; i < 6; i++)
-	{
-		std::cout << s[i];
-	}
-	
-	return 0;
-}

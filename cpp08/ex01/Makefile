@@ -5,13 +5,13 @@ COLOR_YELLOW = \033[93m
 COLOR_BOLD = \033[1m
 MAKEFLAGS += --no-print-directory
 
-NAME		:= array
+NAME		:= span
 
-SRC			= main.cpp
+SRC			= Span.cpp main.cpp
 
 OBJ			= $(SRC:.cpp=.o)
 
-INCLUDE		= Array.hpp Array.tpp
+INCLUDE		= Span.hpp
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -g3

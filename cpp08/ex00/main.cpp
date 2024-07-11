@@ -5,28 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/04 13:11:01 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/10 12:58:47 by scely            ###   ########.fr       */
+/*   Created: 2024/07/11 11:47:37 by scely             #+#    #+#             */
+/*   Updated: 2024/07/11 15:36:56 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
-
-template< typename T>
-T plusOne(T& i)
-{
-	i -= 32;
-	return (0);
-}
+#include "easyfind.hpp"
+#include <vector>
 
 int main()
 {
-	char s[7] = "samuel";
-	iter(s, 6, plusOne<char>);
-	for (size_t i = 0; i < 6; i++)
+	try
+	{	
+		std::vector<int> tab;
+		tab.push_back(9);
+		tab.push_back(4);
+		tab.push_back(8);
+		tab.push_back(5);
+		tab.push_back(9);
+		tab.push_back(9);
+		std::vector<int>::iterator sc = easyfind(tab, 9);
+		sc++;
+		std::cout << "Found: " << *sc << std::endl;
+	}
+	catch(const std::exception& e)
 	{
-		std::cout << s[i];
+		std::cerr << e.what() << '\n';
 	}
 	
-	return 0;
 }

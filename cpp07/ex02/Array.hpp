@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:45:39 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/09 18:51:02 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/10 14:05:16 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Array
 {
 	private:
 		T *array;
-		const size_t _size;
+		const int _size;
 
 	public: // construtor & destructor
 		Array();
