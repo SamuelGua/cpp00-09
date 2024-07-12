@@ -1,14 +1,31 @@
-#include <vector>
+#include <stack>
 #include <iostream>
 
-int main()
+
+template <class T>
+class MutantStack : public std::stack<T>
 {
-	std::vector<int> tab;
+    public:
 
-	tab.push_back(15);
-	tab.push_back(14);
-	tab.push_back(132);
-	tab.push_back(152);
+        typedef typename std::stack<T>::container_type::iterator iterator;
+        typedef typename std::stack<T>::container_type::const_iterator const_iterator;
+        typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
+        typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
+        
+        
 
-	std::cout << tab.data(2) << std::endl;
-}
+        // MutantStack(const MutantStack& copy);
+        // MutantStack& operator=(const MutantStack& copy);
+
+        iterator            begin(void);
+        const_iterator      begin(void) const;
+        
+        iterator            end(void);
+        const_iterator      end(void) const ;
+
+        reverse_iterator          rend(void);
+        const_reverse_iterator    rend(void) const;
+
+        reverse_iterator          rbegin(void);
+        const_reverse_iterator    rbegin(void) const;
+};

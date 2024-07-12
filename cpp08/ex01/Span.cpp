@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marie-evecely <marie-evecely@student.42    +#+  +:+       +#+        */
+/*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:33:47 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/12 12:08:24 by marie-evece      ###   ########.fr       */
+/*   Updated: 2024/07/12 14:21:19 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void Span::addNumber(unsigned int size)
 	if (occurrence == this->_tab.end())
 		this->_tab.push_back(size);
 	else
-		throw std::logic_error("Execption: This number is already added");
+		throw std::logic_error("Exception: This number is already added");
 }
 
 unsigned int Span::shortestSpan(void)
@@ -72,9 +72,14 @@ unsigned int Span::longestSpan(void)
 	return (this->_tab.back() - this->_tab.front());
 }
 
-template< typename R > void Span::append_range( R& rg )
+void Span::print(void)
 {
-	if (!rg.size())
-		throw std::logic_error("Execption: append_range fail because the second array is empty");
-
+	if (this->_tab.empty())
+	{
+		std::cout << "Cannot print because this array is empty" << std::endl;
+		return ;
+	}
+	for (std::vector<unsigned int>::iterator it = this->_tab.begin(); it != this->_tab.end(); ++it)
+		std::cout << *it << std::endl;
+	
 }

@@ -7,11 +7,11 @@ MAKEFLAGS += --no-print-directory
 
 NAME		:= span
 
-SRC			= Span.cpp main.cpp
+SRC			= MutantStack.cpp main.cpp
 
 OBJ			= $(SRC:.cpp=.o)
 
-INCLUDE		= Span.hpp
+INCLUDE		= MutantStack.hpp
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -g3 -std=c++98 -I include

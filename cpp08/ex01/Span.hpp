@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marie-evecely <marie-evecely@student.42    +#+  +:+       +#+        */
+/*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:00:48 by scely             #+#    #+#             */
-/*   Updated: 2024/07/12 12:04:39 by marie-evece      ###   ########.fr       */
+/*   Updated: 2024/07/12 14:54:05 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,16 @@ class Span
 		void addNumber(unsigned int size);
 		unsigned int shortestSpan(void);
 		unsigned int longestSpan(void);
+		void print(void);
 		template< typename R > void append_range( R& rg );
 };
 
+template< typename R > void Span::append_range( R& rg )
+{
+	if (rg.empty())
+		throw std::logic_error("Execption: append_range fail because the second array is empty");
+	for (typename R::const_iterator it = rg.begin(); it != rg.end(); ++it)
+			this->addNumber(*it);
+}
 
 #endif
