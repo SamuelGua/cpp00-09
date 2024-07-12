@@ -7,24 +7,24 @@ MAKEFLAGS += --no-print-directory
 
 NAME		:= span
 
-SRC			= MutantStack.cpp main.cpp
+SRC			= main.cpp
 
 OBJ			= $(SRC:.cpp=.o)
 
 INCLUDE		= MutantStack.hpp
 
-CC			= c++
-CFLAGS		= -Wall -Wextra -Werror -g3 -std=c++98 -I include
+CXX			:= c++
+CXXFLAGS		= -Wall -Wextra -Werror -g3 -std=c++98 -I include
 
 RM			= rm -rf
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	@$(CC) $(OBJ) -o $(NAME)
+	@$(CXX) $(OBJ) -o $(NAME)
 
 %.o : %.cpp $(INCLUDE)
-	$(CC) $(CFLAGS) $(CCFLAGS) -c -o $@ $<
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 clean:
 	@$(RM) $(OBJ)

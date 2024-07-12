@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:58:53 by scely             #+#    #+#             */
-/*   Updated: 2024/07/12 16:44:24 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/12 18:00:35 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <iostream>
 
 template <class T>
-class MutantStack : public std::list<T>
+class MutantStack : public std::stack<T>
 {
     public:
         MutantStack();
