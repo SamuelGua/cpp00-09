@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:00:28 by scely             #+#    #+#             */
-/*   Updated: 2024/07/09 18:35:28 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/09 22:25:01 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,21 @@
 
 ScalarConverter::~ScalarConverter()
 { 
+}
+
+ScalarConverter::ScalarConverter()
+{ 
+}
+
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter &copy)
+{
+    (void)copy;
+    return (*this);
+}
+
+ScalarConverter::ScalarConverter(const ScalarConverter &copy)
+{
+    (void)copy;
 }
 
 #define ERROR 0

@@ -58,6 +58,7 @@
 		"thread": "cpp",
 		"cinttypes": "cpp",
 		"*.tpp": "cpp",
-		"sstream": "cpp"
+		"sstream": "cpp",
+		"list": "cpp"
 	}
 }

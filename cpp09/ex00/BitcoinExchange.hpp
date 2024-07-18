@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 09:00:28 by scely             #+#    #+#             */
-/*   Updated: 2024/07/09 22:23:31 by scely            ###   ########.fr       */
+/*   Created: 2024/07/13 15:01:08 by scely             #+#    #+#             */
+/*   Updated: 2024/07/13 20:05:25 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERT_HPP
-#define SCALARCONVERT_HPP
+#ifndef BITCOIN_HPP
+#define BITCOIN_HPP
 
 #include <string>
 #include <iostream>
-#include <stdlib.h> 
-#include <limits.h> 
+#include <algorithm>
 
-class ScalarConverter
+
+void split_datacsv(std::string buffer, std::string *tab)
 {
-    private:
-        ScalarConverter();
-        ScalarConverter& operator=(const ScalarConverter &copy);
-        ScalarConverter(const ScalarConverter &copy);
-    public:
-        ~ScalarConverter();
-        
-
-        static void convert(std::string str); 
-};
-
+    if (tab[0].empty())
+        tab[0].erase();
+    if (tab[1].empty())
+        tab[1].erase();
+    
+    tab[0].append(buffer, 0, 10);
+    tab[0].append(buffer, 11, buffer.length() - 11);
+}
 
 
 #endif
