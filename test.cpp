@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 15:01:08 by scely             #+#    #+#             */
-/*   Updated: 2024/07/13 19:58:12 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/23 12:59:20 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 class Split
 {
 private:
-    std::string *splited;
     Split();
     void the_split(std::string str, char del);
 public:
+    std::string *splited;
     Split(std::string str, char del);
     void new_data(std::string str, char del);
     // Split(Split const &copy);
@@ -36,8 +36,9 @@ Split::Split(std::string str, char del)
 
 void Split::the_split(std::string str, char del)
 {
-    if (!str.empty() || !del)
+    if (str.empty() || !del)
         throw std::logic_error("Exception: fail to split. Argument is incorrect");
+
     /*===========clean area =================*/
     if (str[0] == del)
         str.erase(0, 1);
@@ -48,13 +49,12 @@ void Split::the_split(std::string str, char del)
 
     while ((pos = str.find(del, pos)) != std::string::npos)
     {
-        pos = str.find(del, pos);            
+        pos = str.find(del, pos);
         occur = 1;
         while (pos + occur < str.size() && str[pos + occur] == del)
             occur++;
         if (occur > 1)
             str.erase(pos + 1, occur -1);
-        std::cout << &str[pos + occur] << std::endl;
         pos++;
     }
     if (str.empty())
@@ -84,4 +84,17 @@ void Split::the_split(std::string str, char del)
 Split::~Split()
 {
     delete [] splited;
+}
+
+int main()
+{
+    Split gvaleur("maman est la mon petit enfant mais dit moi comment tu t'appekrs sfegwege ", 32);
+    
+    int i = 0;
+    while (!gvaleur.splited[i].empty())
+    {
+        std::cout << gvaleur.splited[i] << std::endl;
+        i++;
+    }
+    
 }

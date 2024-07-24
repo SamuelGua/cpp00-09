@@ -13,9 +13,9 @@ OBJ			= $(SRC:.cpp=.o)
 
 INCLUDE		= easyfind.hpp
 
-CC			= c++
-CFLAGS		= -Wall -Wextra -Werror -g3
-CFLAGS		+= -std=c++98
+CXX			= c++
+CXXFLAGS		= -Wall -Wextra -Werror -g3
+CXXFLAGS		+= -std=c++98
 CCFLAGS		+= -I include
 
 RM			= rm -rf
@@ -23,10 +23,10 @@ RM			= rm -rf
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	@$(CC) $(OBJ) -o $(NAME)
+	@$(CXX) $(OBJ) -o $(NAME)
 
 %.o : %.cpp $(INCLUDE)
-	$(CC) $(CFLAGS) $(CCFLAGS) -c -o $@ $<
+	$(CXX) $(CXXFLAGS) -I include -c -o $@ $<
 
 clean:
 	@$(RM) $(OBJ)

@@ -1,20 +1,20 @@
 COLOR_RESET = \033[0m
 COLOR_RED = \033[91m
 COLOR_GREEN = \033[92m
-COLOR_YELLOW = \033[93m
 COLOR_BOLD = \033[1m
 MAKEFLAGS += --no-print-directory
 
-NAME		:= span
+NAME		:= RPN
 
-SRC			= Span.cpp main.cpp
+SRC			= main.cpp RPN.cpp
 
 OBJ			= $(SRC:.cpp=.o)
 
-INCLUDE		= Span.hpp
+INCLUDE		= RPN.hpp
 
 CXX			= c++
-CXXFLAGS		= -Wall -Wextra -Werror -g3 -std=c++98 -I include
+CXXFLAGS		= -Wall -Wextra -Werror -g3
+CXXFLAGS		+= -std=c++98
 
 RM			= rm -rf
 
@@ -24,7 +24,7 @@ $(NAME) : $(OBJ)
 	@$(CXX) $(OBJ) -o $(NAME)
 
 %.o : %.cpp $(INCLUDE)
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+	$(CXX) $(CXXFLAGS) -I include -c -o $@ $<
 
 clean:
 	@$(RM) $(OBJ)
