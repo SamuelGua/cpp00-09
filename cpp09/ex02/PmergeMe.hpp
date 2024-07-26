@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:14:35 by scely             #+#    #+#             */
-/*   Updated: 2024/07/25 21:14:06 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/26 19:32:22 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #include <list>
 #include <errno.h>
 #include <algorithm>
+#include <ctime>
 
 #define ORANGE "\033[38;5;208m"
 #define RED "\033[1;31m"
@@ -34,6 +35,8 @@ class PmergeMe
         std::vector<int> _vector;
         PmergeMe();
 
+        void mergeSort(void);
+        
     public:
         PmergeMe(int ac, char **av);
         PmergeMe(const PmergeMe& copy);

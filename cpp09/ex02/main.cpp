@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:19:34 by scely             #+#    #+#             */
-/*   Updated: 2024/07/25 20:43:25 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/26 19:43:22 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main(int ac, char *av[])
 {
+    //check si c'est empty
     if (ac == 1)
     {
         std::cout << "Error: Need at least one argument" << std::endl;
@@ -22,10 +23,10 @@ int main(int ac, char *av[])
     try
     {
         PmergeMe test(ac, av);
-        test.print();
+        // test.print();
         test.sorting();
         std::cout << "============\n";
-        test.print();
+        // test.print();
     }
     catch(const std::exception& e)
     {

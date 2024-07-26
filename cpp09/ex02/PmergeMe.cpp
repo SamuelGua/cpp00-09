@@ -6,11 +6,14 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:16:19 by scely             #+#    #+#             */
-/*   Updated: 2024/07/25 21:17:45 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/26 19:48:34 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+void divide(std::vector<int>& container);
+
 
 /**************************************************************************************/
 /*                              Constructeur et destructeur                           */
@@ -74,9 +77,90 @@ void PmergeMe::print(void)
     for (; it_vector != this->_vector.end();  it_vector++)
         std::cout << *it_vector << " ";
     std::cout << std::endl;
-
-
 }
+
+/*-----------------------------vector-----------------------------*/
+void  merge(std::vector<int>& leftSide, std::vector<int>& rightSide, std::vector<int>& container)
+{
+    
+    std::vector<int>::iterator it_leftSide = leftSide.begin();
+    std::vector<int>::iterator it_rightSide = rightSide.begin();
+    container.clear();
+    while (it_leftSide != leftSide.end() && it_rightSide != rightSide.end())
+    {
+        if (*it_leftSide < *it_rightSide)
+        {
+            container.push_back(*it_leftSide);
+            it_leftSide++;
+        }
+        else
+        {
+            container.push_back(*it_rightSide);
+            it_rightSide++;
+        }
+    }
+    container.insert(container.end(), it_leftSide, leftSide.end());
+    container.insert(container.end(), it_rightSide, rightSide.end());
+}
+
+void mergeSortAl(std::vector<int>& container)
+{
+    size_t arraySize = container.size();
+    if (arraySize <= 1)
+        return ;
+    size_t arrayMiddle = arraySize / 2;
+    std::vector<int> leftside(container.begin(), container.begin() + arrayMiddle);
+    std::vector<int> rightside(container.begin() + arrayMiddle, container.end());
+    mergeSortAl(leftside);
+    mergeSortAl(rightside);
+    merge(leftside, rightside, container);
+}
+/*-----------------------------list-----------------------------*/
+
+void  merge(std::list<int>& leftSide, std::list<int>& rightSide, std::list<int>& container)
+{
+    
+    std::list<int>::iterator it_leftSide = leftSide.begin();
+    std::list<int>::iterator it_rightSide = rightSide.begin();
+    container.clear();
+    while (it_leftSide != leftSide.end() && it_rightSide != rightSide.end())
+    {
+        if (*it_leftSide < *it_rightSide)
+        {
+            container.push_back(*it_leftSide);
+            it_leftSide++;
+        }
+        else
+        {
+            container.push_back(*it_rightSide);
+            it_rightSide++;
+        }
+    }
+    container.insert(container.end(), it_leftSide, leftSide.end());
+    container.insert(container.end(), it_rightSide, rightSide.end());
+}
+
+void mergeSortAl(std::list<int>& container)
+{
+    size_t arraySize = container.size();
+    if (arraySize <= 1)
+        return ;
+    size_t arrayMiddle = arraySize / 2;
+    std::list<int> leftside;
+    std::list<int> rightside;
+    std::list<int>::iterator it = container.begin();
+    for (size_t i = 0; i < arraySize; i++, it++)
+    {
+        if (i < arrayMiddle)
+            leftside.push_back(*it);
+        else
+            rightside.push_back(*it);
+    }
+    mergeSortAl(leftside);
+    mergeSortAl(rightside);
+    merge(leftside, rightside, container);
+}
+
 
 void PmergeMe::sorting()
 {
@@ -88,7 +172,18 @@ void PmergeMe::sorting()
     }
     if (it == this->_vector.end())
     {
-        std::cout << ORANGE  "This array is already sorted\n"  RESET;
+        std::cout << ORANGE "This array is already sorted\n" RESET;
         return ;
     }
+    //time 1
+    std::time_t time_0 = std::clock(); 
+    mergeSortAl(this->_vector);
+    std::time_t time_1 = std::clock(); 
+    std::cout << ORANGE << 1000.0 * (time_1 - time_0) / CLOCKS_PER_SEC << "ms" << RESET << std::endl;
+    
+    //time 2
+    time_0 = std::clock();
+    mergeSortAl(this->_list);
+    time_1 = std::clock();
+    std::cout << ORANGE << 1000.0 * (time_1 - time_0) / CLOCKS_PER_SEC << "ms" << RESET << std::endl;
 }
