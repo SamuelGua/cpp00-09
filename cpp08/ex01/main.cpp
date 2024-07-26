@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:36:04 by marie-evece       #+#    #+#             */
-/*   Updated: 2024/07/12 15:01:47 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/26 20:27:40 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main()
 	std::cout << "=============================" << std::endl;
 	{
 		Span sp = Span(15);
-		std::list<unsigned int> list;
+		std::vector<unsigned int> list;
 		for (size_t i = 0; i < 10; i++)
 			list.push_back(i);
 		sp.append_range(list);
@@ -53,7 +53,7 @@ int main()
 	std::cout << "=============================" << std::endl;
 	{
 		Span sp = Span(5);
-		std::list<unsigned int> list;
+		std::vector<unsigned int> list;
 		list.push_back(647);
 		list.push_back(5);
 		list.push_back(157);

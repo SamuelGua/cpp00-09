@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:14:35 by scely             #+#    #+#             */
-/*   Updated: 2024/07/26 19:32:22 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/26 21:40:29 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ class PmergeMe
         std::list<int> _list;
         std::vector<int> _vector;
         PmergeMe();
-
-        void mergeSort(void);
         
     public:
         PmergeMe(int ac, char **av);
