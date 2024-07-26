@@ -6,15 +6,13 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 15:01:08 by scely             #+#    #+#             */
-/*   Updated: 2024/07/23 17:08:27 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/25 17:06:58 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
 #include <stack>
-#include <cctype>
-#include <stdlib.h>
 
 class RPN
 {
