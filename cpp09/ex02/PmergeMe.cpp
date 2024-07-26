@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:16:19 by scely             #+#    #+#             */
-/*   Updated: 2024/07/26 19:48:34 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/26 20:08:56 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ PmergeMe::PmergeMe(int ac, char **av)
         nb = (std::strtol(av[i], &endptr, 10));
         if (errno == ERANGE || *endptr != '\0' || endptr == av[i]) 
             throw std::logic_error (RED "Exception: Wrongs inputs" RESET);
-        if (!(std::numeric_limits<int>::min() <= nb && std::numeric_limits<int>::max() >= nb))
+        if (!(0 <= nb && std::numeric_limits<int>::max() >= nb))
             throw std::logic_error (RED "Exception: Incorrect number" RESET);
         if (std::find(this->_list.begin(), this->_list.end(), nb) != this->_list.end())
             throw std::logic_error (RED "Exception: duplicate number" RESET);
@@ -176,14 +176,23 @@ void PmergeMe::sorting()
         return ;
     }
     //time 1
-    std::time_t time_0 = std::clock(); 
+    std::time_t Vectortime_0 = std::clock(); 
     mergeSortAl(this->_vector);
-    std::time_t time_1 = std::clock(); 
-    std::cout << ORANGE << 1000.0 * (time_1 - time_0) / CLOCKS_PER_SEC << "ms" << RESET << std::endl;
+    std::time_t Vectortime_1 = std::clock(); 
     
     //time 2
-    time_0 = std::clock();
+    std::time_t listTime_0 = std::clock();
     mergeSortAl(this->_list);
-    time_1 = std::clock();
-    std::cout << ORANGE << 1000.0 * (time_1 - time_0) / CLOCKS_PER_SEC << "ms" << RESET << std::endl;
+    std::time_t listTime_1 = std::clock();
+    
+    std::cout << "Before";
+    this->print();
+    std::cout << "After";
+    this->print();
+    
+    std::cout << ORANGE << "Time to process a range of " << this->_vector.size() << " elements with std::vector : ";
+    std::cout << 1000.0 * (Vectortime_1 - Vectortime_0) / CLOCKS_PER_SEC << "ms" << RESET << std::endl;
+    
+    std::cout << ORANGE << "Time to process a range of " << this->_list.size() << " elements with std::list   : ";
+    std::cout << ORANGE << 1000.0 * (listTime_1 - listTime_0) / CLOCKS_PER_SEC << "ms" << RESET << std::endl;
 }
