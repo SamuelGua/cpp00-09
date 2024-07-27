@@ -6,7 +6,7 @@
 /*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 14:53:56 by scely             #+#    #+#             */
-/*   Updated: 2024/07/26 23:29:15 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/27 11:33:45 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int main(int ac, char **av)
 {
-    if (ac != 3)
+    if (ac != 2)
     {
-        std::cerr << "Error: Only two arguments required" << std::endl;
+        std::cerr << "Error: Only one arguments required" << std::endl;
         return (1);
     }
     try
     {
-        BitcoinExchange btc(av[1]);
-        btc.convert(av[2]);
+        BitcoinExchange btc;
+        btc.convert(av[1]);
     }
     catch(const std::exception& e)
     {
