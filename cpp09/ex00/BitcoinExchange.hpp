@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marie-evecely <marie-evecely@student.42    +#+  +:+       +#+        */
+/*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 15:01:08 by scely             #+#    #+#             */
-/*   Updated: 2024/07/27 14:07:21 by marie-evece      ###   ########.fr       */
+/*   Updated: 2024/07/28 22:06:20 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 class BitcoinExchange
 {
     private:
-        std::map<std::string, int> _dataCsv;
+        std::map<std::string, double> _dataCsv;
     public:
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange& copy);

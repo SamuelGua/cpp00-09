@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marie-evecely <marie-evecely@student.42    +#+  +:+       +#+        */
+/*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 10:18:20 by scely             #+#    #+#             */
-/*   Updated: 2024/07/28 20:47:27 by marie-evece      ###   ########.fr       */
+/*   Updated: 2024/07/28 22:17:17 by scely            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,6 @@
 
 BitcoinExchange::BitcoinExchange()
 {
-    // if (dataCsv.empty())
-    //     throw std::logic_error("Exception: No data file");
-    // size_t pos = (dataCsv.size() < 4 ? 0 : dataCsv.size() - 4);
-    // if (dataCsv.compare(pos, 4, ".csv"))
-    //     throw std::logic_error("Execption: Wrongs extension (only .csv) :" + dataCsv);
     std::fstream fs;
     fs.open("data.csv", std::fstream::in);
     if (!fs.is_open())
@@ -35,13 +30,7 @@ BitcoinExchange::BitcoinExchange()
         exchange_rate.insert(0, line, line.find_first_of(",") + 1, line.size());
         this->_dataCsv[date] =  std::strtod(exchange_rate.c_str(), NULL);
     }
-    // std::cout << this->_dataCsv.size() << std::endl;
-    // std::map<std::string, int>::iterator it = _dataCsv.begin(); 
-    // std::cout << "Clé du premier élément: " << it->first << std::endl;
-    // std::cout << "Valeur du premier élément: " << it->second << std::endl; 
-    // ++it;
-    // std::cout << "Clé du premier élément: " << it->first << std::endl;
-    // std::cout << "Valeur du premier élément: " << it->second << std::endl; 
+    fs.close();
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& copy)
@@ -69,7 +58,7 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& obj)
 /*                                      Methodes                                      */
 /**************************************************************************************/
 
-bool checkLine(std::string line)
+bool checkLine(std::string& line)
 {
     if (line.empty())
         return (false);
@@ -78,7 +67,7 @@ bool checkLine(std::string line)
     return (true);
 }
 
-bool checkDate(std::string value)
+bool checkDate(std::string& value)
 {
     if (value.size() != 10 || std::count(value.begin(), value.end(), '-') != 2)
     {
@@ -100,8 +89,8 @@ bool checkDate(std::string value)
         std::cerr << RED "Error: Wrong month => " << value << RESET << std::endl;
         return (false);
     }
+    
     bool leapYear = (year % 400) || (year % 4 == 0 && year % 100 != 0);
-
     if (month <= 0 || month > 12)
     {
         std::cerr << RED "Error: Wrong month => " << value << RESET << std::endl;
@@ -115,30 +104,23 @@ bool checkDate(std::string value)
                 std::cerr << RED "Error:1 Wrong day => " << value << RESET << std::endl;
                 return (false);
             }
+            break;
         case 1:
-            if (month == 7 && day > 31)
+            if ((month == 7 && day > 31) || (month == 2 && leapYear && day > 29) || (month == 2 && !leapYear && day > 28))
             {
-                std::cerr << RED "Error:2 Wrong day => " << value << RESET << std::endl;
-                return false;
-            }
-            if (month == 2 && leapYear && day > 29)
-            {
-                std::cerr << RED "Error:3 Wrong day => " << value << RESET << std::endl;
-                return false;
-            }
-            else if (month == 2 && !leapYear && day > 28)
-            {
-                std::cerr << RED "Error:4 Wrong day => " << value << RESET << std::endl;
+                std::cerr << RED "Error: Wrong day => " << value << RESET << std::endl;
                 return false;
             }
             break;
         default:
+                std::cerr << RED "Error: check this line too find error => " << value << std::endl;
+                std::cerr << month << "% 2 = "  << month % 2 << RED << std::endl;
             break;
     }
     return (true);
 }
 
-bool checkValue(std::string value)
+bool checkValue(std::string& value)
 {
     if (value.empty())
     {
@@ -163,6 +145,13 @@ bool checkValue(std::string value)
         return (false);
     }
     return (true);
+}
+
+void calculate(std::map<std::string, double>& data, std::string& date, std::string& value)
+{
+    std::map<std::string, double>::iterator it = data.lower_bound(date);
+    if (it != data.end())
+        std::cout << date + " => " << value << " = " << std::strtod(value.c_str(), NULL) * it->second << std::endl;
 }
 
 void BitcoinExchange::convert(std::string dataBase)
@@ -190,15 +179,11 @@ void BitcoinExchange::convert(std::string dataBase)
         
         std::string value;
         value.insert(0, line, line.find_first_of("|") + 1, line.size());
-        if (*(value.end() - 1) == ' ')
+        if (*(value.begin()) == ' ')
             value.erase(value.begin());
         if (!checkValue(value))
             continue;
-        std::cout << date + " -> " + value << std::endl;
-        //calcule
-        // date == map[date] ? 1 : 0
-        // premiere date et derniere date
-        // compare
+        calculate(this->_dataCsv, date, value);
     }
-    
+    fs.close();
 }
