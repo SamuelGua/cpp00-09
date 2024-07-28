@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marie-evecely <marie-evecely@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 10:18:20 by scely             #+#    #+#             */
-/*   Updated: 2024/07/27 12:07:32 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/28 20:47:27 by marie-evece      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,33 +78,88 @@ bool checkLine(std::string line)
     return (true);
 }
 
-// bool checkDate(std::string value)
-// {
-    
-// }
+bool checkDate(std::string value)
+{
+    if (value.size() != 10 || std::count(value.begin(), value.end(), '-') != 2)
+    {
+        std::cerr << "Error: Wrong format => " << value << std::endl;
+        return (false);
+    }
+
+    int year = std::atoi(value.substr(0, 4).c_str());
+    int month = std::atoi(value.substr(5, 2).c_str());
+    int day = std::atoi(value.substr(8, 2).c_str());
+
+    if (year <= 0)
+    {
+        std::cerr << RED "Error: Wrong year => " << value << RESET << std::endl;
+        return (false);
+    }
+    if (month <= 0 || month > 12)
+    {
+        std::cerr << RED "Error: Wrong month => " << value << RESET << std::endl;
+        return (false);
+    }
+    bool leapYear = (year % 400) || (year % 4 == 0 && year % 100 != 0);
+
+    if (month <= 0 || month > 12)
+    {
+        std::cerr << RED "Error: Wrong month => " << value << RESET << std::endl;
+        return false;
+    }
+    switch (month % 2)
+    {
+        case 0:
+            if (day != 31)
+            {
+                std::cerr << RED "Error:1 Wrong day => " << value << RESET << std::endl;
+                return (false);
+            }
+        case 1:
+            if (month == 7 && day > 31)
+            {
+                std::cerr << RED "Error:2 Wrong day => " << value << RESET << std::endl;
+                return false;
+            }
+            if (month == 2 && leapYear && day > 29)
+            {
+                std::cerr << RED "Error:3 Wrong day => " << value << RESET << std::endl;
+                return false;
+            }
+            else if (month == 2 && !leapYear && day > 28)
+            {
+                std::cerr << RED "Error:4 Wrong day => " << value << RESET << std::endl;
+                return false;
+            }
+            break;
+        default:
+            break;
+    }
+    return (true);
+}
 
 bool checkValue(std::string value)
 {
     if (value.empty())
     {
-        std::cerr << "Format value error: none value" << std::endl;
+        std::cerr << RED "Error: None value" RESET << std::endl;
         return (false);
     }
     char* endptr;
     double dValue = std::strtod(value.c_str(), &endptr);
     if (*endptr != '\0')
     {
-        std::cerr << "Format value error: incorrect input " + value << std::endl;
+        std::cerr << RED "Error: Incorrect input =>" + value << RESET<< std::endl;
         return (false);
     }
     if (dValue < 0)
     {
-        std::cerr << "Format value error: not a positive number " + value << std::endl;
+        std::cerr << RED "Error: Not a positive number =>" + value << RESET << std::endl;
         return (false);
     }
     else if (dValue > 1000)
     {
-        std::cerr << "Format value error: too large number " + value << std::endl;
+        std::cerr << RED "Error: Too large number =>" + value << RESET << std::endl;
         return (false);
     }
     return (true);
@@ -118,22 +173,21 @@ void BitcoinExchange::convert(std::string dataBase)
     fs.open(dataBase.c_str(), std::fstream::in);
     if (!fs.is_open())
         throw std::logic_error("Execption: Cannot open file :" + dataBase);
-    //check-format
     std::string line;
     std::getline(fs, line);
     for (;std::getline(fs, line);)
     {
-        // check line
-        // execption it's not a "date | value" format
         if (!checkLine(line))
         {
-            std::cerr << "Error: the format must be 'date | value' => " + line << std::endl;
+            std::cerr << RED "Error: The format must be 'date | value' => " + line << RESET<< std::endl;
             continue;   
         }
         std::string date;
         date.insert(0, line, 0, line.find_first_of("|"));
         date.erase(date.end() - 1);
-        // format date
+        if (!checkDate(date))
+            continue;
+        
         std::string value;
         value.insert(0, line, line.find_first_of("|") + 1, line.size());
         if (*(value.end() - 1) == ' ')

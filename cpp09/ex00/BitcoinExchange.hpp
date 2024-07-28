@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: scely <scely@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marie-evecely <marie-evecely@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 15:01:08 by scely             #+#    #+#             */
-/*   Updated: 2024/07/27 11:29:59 by scely            ###   ########.fr       */
+/*   Updated: 2024/07/27 14:07:21 by marie-evece      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 #include <algorithm>
 #include <limits>
 #include <map>
+
+#define ORANGE "\033[38;5;208m"
+#define RED "\033[1;31m"
+#define RESET  "\033[0m"
 
 class BitcoinExchange
 {
