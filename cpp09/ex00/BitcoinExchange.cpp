@@ -71,8 +71,8 @@ bool checkDate(std::string& value)
 {
     if (value.size() != 10 || std::count(value.begin(), value.end(), '-') != 2)
     {
-        std::cerr << "Error: Wrong format => " << value << std::endl;
-        return (false);
+        std::cerr << RED "Error: Wrong format => " << value << RESET << std::endl;
+        return false;
     }
 
     int year = std::atoi(value.substr(0, 4).c_str());
@@ -82,42 +82,27 @@ bool checkDate(std::string& value)
     if (year <= 0)
     {
         std::cerr << RED "Error: Wrong year => " << value << RESET << std::endl;
-        return (false);
+        return false;
     }
-    if (month <= 0 || month > 12)
-    {
-        std::cerr << RED "Error: Wrong month => " << value << RESET << std::endl;
-        return (false);
-    }
-    
-    bool leapYear = (year % 400) || (year % 4 == 0 && year % 100 != 0);
-    if (month <= 0 || month > 12)
+    if (month < 1 || month > 12)
     {
         std::cerr << RED "Error: Wrong month => " << value << RESET << std::endl;
         return false;
     }
-    switch (month % 2)
-    {
-        case 0:
-            if (day != 31)
-            {
-                std::cerr << RED "Error:1 Wrong day => " << value << RESET << std::endl;
-                return (false);
-            }
-            break;
-        case 1:
-            if ((month == 7 && day > 31) || (month == 2 && leapYear && day > 29) || (month == 2 && !leapYear && day > 28))
-            {
-                std::cerr << RED "Error: Wrong day => " << value << RESET << std::endl;
-                return false;
-            }
-            break;
-        default:
-                std::cerr << RED "Error: check this line too find error => " << value << std::endl;
-                std::cerr << month << "% 2 = "  << month % 2 << RED << std::endl;
-            break;
+
+    bool leapYear = (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
+    int daysInMonth[12]= {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    if (leapYear) {
+        daysInMonth[1] = 29;
     }
-    return (true);
+
+    if (day < 1 || day > daysInMonth[month - 1])
+    {
+        std::cerr << RED "Error: Wrong day => " << value << RESET << std::endl;
+        return false;
+    }
+
+    return true;
 }
 
 bool checkValue(std::string& value)
